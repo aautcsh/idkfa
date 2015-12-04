@@ -8,6 +8,7 @@
 var cnf	= require('../config.js');
 var fnc	= require('./functions.js');
 var fs	= require('fs');
+var _	= require('underscore');
 
 var D =
 {

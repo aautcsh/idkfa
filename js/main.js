@@ -18,7 +18,7 @@ var	CPU	= require('os').cpus().length;
 if (CL.isMaster)
 {
 	while (CPU --) CL.fork();
-	CL.on('exit', function () {process.exit(0);});
+	CL.on('SIGINT', function () {process.exit(0);});
 }
 
 else
@@ -30,7 +30,7 @@ else
 	var chunks = S.select({s:[0,1]});
 
 	// Load OEIS sequences.
-	//var oeis = O.select(C.oeis);
+	var oeis = O.select(C.oeis);
 
 	// Add custom keys.
 	keys = C.keys;
@@ -39,6 +39,5 @@ else
 	data = E.process(chunks, keys);
 
 	// Display data and exit.
-	var done = L.toScreen(data);
-	if (done) process.exit(0);
+	if (L.toScreen(data)) process.exit(0);
 }

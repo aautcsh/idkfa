@@ -5,9 +5,10 @@
 //	Numbers
 //
 
-var F		= require('./functions.js');
-var nt		= require('number-theory');
-var pi		= require('pi-number');
+var F	= require('./functions.js');
+var N	= require('number-theory');
+var pi	= require('pi-number');
+var _	= require('underscore');
 
 
 var N =
@@ -25,7 +26,7 @@ var N =
 
 		for (var i = 0; j < length; i ++)
 		{
-			if (nt.isPrime(i))
+			if (N.isPrime(i))
 			{
 				primes.push(i);
 				j ++;
@@ -41,7 +42,7 @@ var N =
 
 		for (var i = 0; i < length; i ++)
 		{
-			phi.push(nt.eulerPhi(i));
+			phi.push(N.eulerPhi(i));
 		}
 
 		return phi;

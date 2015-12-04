@@ -65,6 +65,8 @@ var L =
 		}
 
 		console.log(str);
+
+		// Need this to kill last worker.
 		process.exit(0);
 	}
 };

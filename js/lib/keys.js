@@ -37,12 +37,13 @@ var K =
 		{
 			max = keylen - graphs[i];
 
-			// Build graphs
+			// Loop through graphs
 			for (j = 0; j <= max; j ++ )
 			{
+				// Build n-graph
 				graph = key.substr(j, graphs[i]).toUpperCase();
 
-				// Search Gematria for graphs
+				// Search Gematria for graph
 				for (k = 0; k < this.table.length; k ++)
 				{
 					// If we got a match add graph to tmp array and blank its position in key.

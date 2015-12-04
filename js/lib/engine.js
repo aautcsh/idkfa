@@ -99,7 +99,7 @@ var E =
 						}
 					}
 
-					// Calculate and add IoCs of individual mutations.
+					// Calculate and add IoC of individual mutation.
 					data[i][j][k].dltrf.ioc = N.ioc(data[i][j][k].dltrf.chars);
 					data[i][j][k].dltrr.ioc = N.ioc(data[i][j][k].dltrr.chars);
 					data[i][j][k].ultrf.ioc = N.ioc(data[i][j][k].ultrf.chars);
