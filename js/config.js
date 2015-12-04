@@ -5,8 +5,14 @@
 //	Config
 //
 
-var cnf =
+var C =
 {
+	"keys":
+	[
+		[0],
+		'divinity'
+	],
+
 	"raw": "./data/liber",
 
 	"encoding": "utf8",
@@ -61,9 +67,15 @@ var cnf =
 		"low":
 		{
 			"bg": "",
-			"color": "dim",
+			"color": "",
 			"value": 1.2,
-		}
+		},
+
+		"default":
+		{
+			"bg": "",
+			"color": "dim"
+		},
 	},
 
 	"oeis":
@@ -72,8 +84,8 @@ var cnf =
 
 		"include":
 		{
-			"seqlength":	">= 6",
-			"numlength":	"<= 6",
+			"seqlength":	"> 6",
+			"numlength":	"< 6",
 			"numkeyspace":	"[0-9]",
 			"numbinary": 	false,
 			"hardlimit":	10000
@@ -81,4 +93,4 @@ var cnf =
 	}
 };
 
-module.exports = cnf;
+module.exports = C;
