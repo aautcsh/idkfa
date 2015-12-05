@@ -84,12 +84,21 @@ var C =
 
 		"include":
 		{
-			"seqlength":	"> 6",
-			"numlength":	"< 6",
-			"numkeyspace":	"[0-9]",
-			"numbinary": 	false,
-			"hardlimit":	10000
+			"minchar":	1,
+			"maxchar":	8,
+			"keyspace":	"[0-9]",
+			"binary": 	false,
+			"limit":	10000
 		}
+	},
+
+	"dict":
+	{
+		"file": "../../data/word",
+		"minchar": 2,
+		"maxchar": 6,
+		"exclude": ['i', 'he', 'cat', 'dog'],
+		"include": ['banana']
 	}
 };
 

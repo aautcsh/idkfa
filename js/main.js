@@ -31,6 +31,7 @@ else
 
 	// Load OEIS sequences.
 	var oeis = O.select(C.oeis);
+	console.log(oeis[1] + ' loaded');
 
 	// Add custom keys if any or [0] to have an iteration with no shifting.
 	keys = (C.keys) ? C.keys : [0];

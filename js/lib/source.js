@@ -42,7 +42,7 @@ var D =
 		// Loop through chunks
 		for(var i in chunks)
 		{
-			if (selectors.hasOwnProperty(i))
+			if (selectors[i])
 			{
 				// Get data.
 				data[i] = [];
@@ -62,7 +62,6 @@ var D =
 					{
 						if(chunks[i][j] > all[i].length)
 						{
-							console.log('Warning: Chunk specified > total chunks. Skipping: ' + i + ' ' + chunks[i][j]);
 							continue;
 						}
 						else
