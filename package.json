@@ -2,7 +2,6 @@
   "name": "@3301/liber",
   "version": "0.0.1",
   "description": "Liber Primus Translator",
-  "homepage": "http://lh-1.3301.lan/",
   "license": "ISC",
   "main": "./js/main.js",
   "scripts": {

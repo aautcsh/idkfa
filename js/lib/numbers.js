@@ -6,111 +6,79 @@
 //
 
 var F	= require('./functions.js');
-var N	= require('number-theory');
+var nt	= require('number-theory');
 var pi	= require('pi-number');
 var _	= require('underscore');
 
-
 var N =
 {
-	"pi": function(length)
+	"pi": function(length, decimal)
 	{
-		var x = pi(length, true);
-		return (x.slice(0, 1) + x.slice(2)).split('').map(Number);
+		var p = [];
+		// Returns: 1, 4, 1, 5, 9, 2, 6, 5, 3, 5..
+		if (decimal) p = pi(length + 1, false).split('').map(Number);
+		// Returns: 3, 1, 4, 1, 5, 9, 2, 6, 5, 3..
+		else {p = pi(length, true); p = (p.slice(0, 1) + p.slice(2)).split('').map(Number);}
+		return p;
 	},
 
 	"prime": function(length)
 	{
-		var primes = [];
-		var j = 0;
-
-		for (var i = 0; j < length; i ++)
-		{
-			if (N.isPrime(i))
-			{
-				primes.push(i);
-				j ++;
-			}
-		}
-
-		return primes;
+		var p = [];
+		for (var i = 0, j = 0; j < length; i ++) if (nt.isPrime(i)) {p.push(i); j ++;}
+		return p;
 	},
 
 	"phi": function(length)
 	{
-		var phi = [];
-
-		for (var i = 0; i < length; i ++)
-		{
-			phi.push(N.eulerPhi(i));
-		}
-
-		return phi;
+		var p = [];
+		for (var i = 0; i < length; i ++) p.push(nt.eulerPhi(i));
+		return p;
 	},
 
 	"stream": function(char, length)
 	{
-		var stream = [];
-
-		for (var i = 0; i < length; i ++)
-		{
-			stream.push(char);
-		}
-
-		return stream;
+		var s = [];
+		for (var i = 0; i < length; i ++) s.push(char);
+		return s;
 	},
 
 	"ioc": function (data)
 	{
-		//console.log(data);
-
-		var ioc = 0;
-
+		// Clone data so original gets passed on unchanged.
 		var clone = data.slice(0);
 
-		clone = F.array_remove(clone, '-');
+		// Filter out word delimiter.
+		clone = _.without(clone, '-');
 
-		//console.log(data);
+		var allchars = clone.length;
+		var frequency = {};
+		var foo, char;
 
-		var intCharsCount = clone.length;
-		var arrCharsCount = F.array_count_values(clone);
-
-		//console.log(intCharsCount);
-		//console.log(arrCharsCount);
-
-		if (intCharsCount > 0)
+		for (var i = 0; i < allchars; i ++)
 		{
-			//console.log(intCharsCount);
-			//console.log(F.sizeof_object(arrCharsCount));
-			//console.log(arrCharsCount);
-
-			for (var i in arrCharsCount)
-			{
-				//console.log(arrCharsCount[i]);
-
-				arrCharsCount[i] = arrCharsCount[i] * (arrCharsCount[i] - 1);
-			}
-
-			//console.log(arrCharsCount);
-			//console.log(F.array_sum(arrCharsCount));
-
-			arrCharsCount = F.array_sum(arrCharsCount);
-
-			ioc = (arrCharsCount / (intCharsCount * (intCharsCount - 1))) / 29;
-
-			ioc = (ioc === 0) ? '0.0000000000000000000' : ioc;
-
-			//console.log(ioc);
+			char = clone[i].toUpperCase();
+			frequency[char] = frequency[char] ? frequency[char] + 1 : 1;
 		}
 
-		else
+		_.each(frequency, function (a, b, c)
 		{
-			ioc = -1;
-		}
+			c[b] = c[b] * (c[b] - 1);
+		});
 
-		return ioc;
+		var baz = (_.values(frequency));
+		var sum = 0;
 
+		for (var k = 0; k < baz.length; k ++) sum += baz[k];
+
+		return sum / (allchars * (allchars - 1) / 26);
 	}
 };
+
+//console.log(N.pi(10, 1));
+//console.log(N.prime(10));
+//console.log(N.phi(10));
+//var test = "LOREMIPSUMISSIMPLYDUMMYTEXTOFTHEPRINTINGANDTYPESETTINGINDUSTRYLOREMIPSUMHASBEENTHEINDUSTRYSSTANDARDDUMMYTEXTEVERSINCETHESWHENANUNKNOWNPRINTERTOOKAGALLEYOFTYPEANDSCRAMBLEDITTOMAKEATYPESPECIMENBOOKITHASSURVIVEDNOTONLYFIVECENTURIESBUTALSOTHELEAPINTOELECTRONICTYPESETTINGREMAININGESSENTIALLYUNCHANGEDITWASPOPULARISEDINTHESWITHTHERELEASEOFLETRASETSHEETSCONTAININGLOREMIPSUMPASSAGESANDMORERECENTLYWITHDESKTOPPUBLISHINGSOFTWARELIKEALDUSPAGEMAKERINCLUDINGVERSIONSOFLOREMIPSUMITISALONGESTABLISHEDFACTTHATAREADERWILLBEDISTRACTEDBYTHEREADABLECONTENTOFAPAGEWHENLOOKINGATITSLAYOUTTHEPOINTOFUSINGLOREMIPSUMISTHATITHASAMOREORLESSNORMALDISTRIBUTIONOFLETTERSASOPPOSEDTOUSINGCONTENTHERECONTENTHEREMAKINGITLOOKLIKEREADABLEENGLISHMANYDESKTOPPUBLISHINGPACKAGESANDWEBPAGEEDITORSNOWUSELOREMIPSUMASTHEIRDEFAULTMODELTEXTANDASEARCHFORLOREMIPSUMWILLUNCOVERMANYWEBSITESSTILLINTHEIRINFANCYVARIOUSVERSIONSHAVEEVOLVEDOVERTHEYEARSSOMETIMESBYACCIDENTSOMETIMESONPURPOSEINJECTEDHUMOURANDTHELIKE".split('');
+//console.log(N.ioc(test));
 
 module.exports = N;

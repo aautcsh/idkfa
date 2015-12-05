@@ -32,10 +32,10 @@ var L =
 				{
 					str += 'Key: ' + k + '\n\n';
 
-					var dltrfioc = (data[i][j][k].dltrf.ioc * 1000).toString().substring(0,10);
-					var dltrrioc = (data[i][j][k].dltrr.ioc * 1000).toString().substring(0,10);
-					var ultrfioc = (data[i][j][k].ultrf.ioc * 1000).toString().substring(0,10);
-					var ultrrioc = (data[i][j][k].ultrr.ioc * 1000).toString().substring(0,10);
+					var dltrfioc = ' ' + (data[i][j][k].dltrf.ioc).toString().substring(0,10) + ' ';
+					var dltrrioc = ' ' + (data[i][j][k].dltrr.ioc).toString().substring(0,10) + ' ';
+					var ultrfioc = ' ' + (data[i][j][k].ultrf.ioc).toString().substring(0,10) + ' ';
+					var ultrrioc = ' ' + (data[i][j][k].ultrr.ioc).toString().substring(0,10) + ' ';
 
 					dltrfioc = (dltrfioc > cnf.ioc.high.min) ? chalk.bgGreen(dltrfioc) : dltrfioc;
 					dltrrioc = (dltrrioc > cnf.ioc.high.min) ? chalk.bgGreen(dltrrioc) : dltrrioc;
@@ -52,10 +52,10 @@ var L =
 					ultrfioc = (ultrfioc < cnf.ioc.low.max) ? chalk.dim(ultrfioc) : ultrfioc;
 					ultrrioc = (ultrrioc < cnf.ioc.low.max) ? chalk.dim(ultrrioc) : ultrrioc;
 
-					str += 'DLF:\t' + dltrfioc + '\t' + data[i][j][k].dltrf.chars.toString().substring(0, 88) + '\n';
-					str += 'DLR:\t' + dltrrioc + '\t' + data[i][j][k].dltrr.chars.toString().substring(0, 88) + '\n';
 					str += 'ULF:\t' + ultrfioc + '\t' + data[i][j][k].ultrf.chars.toString().substring(0, 88) + '\n';
+					str += 'DLF:\t' + dltrfioc + '\t' + data[i][j][k].dltrf.chars.toString().substring(0, 88) + '\n';
 					str += 'ULR:\t' + ultrrioc + '\t' + data[i][j][k].ultrr.chars.toString().substring(0, 88) + '\n';
+					str += 'DLR:\t' + dltrrioc + '\t' + data[i][j][k].dltrr.chars.toString().substring(0, 88) + '\n';
 					str += '\n';
 
 				}
@@ -64,7 +64,7 @@ var L =
 			}
 		}
 
-		console.log(str);
+		console.log(console.log(str));
 
 		// Need this to kill last worker.
 		process.exit(0);

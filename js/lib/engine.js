@@ -27,25 +27,17 @@ var E =
 			current = chunks[Object.keys(chunks)[i]];
 
 			// Add keys to key pool.
-			for (var x = 0; x < keys.length; x ++)
-			{
-				K.add(keys[x]);
-			}
-
-			//console.log(K.keys);
+			for (var x = 0; x < keys.length; x ++) K.add(keys[x]);
 
 			// Pad keys to current chunks maxchar.
-			for (var y = 0; y < K.keys.length; y ++)
-			{
-				tkeys[i].push(K.pad(K.keys[y], current.maxchar));
-			}
-
-			//console.log(tkeys[i]);
+			for (var y = 0; y < K.keys.length; y ++) tkeys[i].push(K.pad(K.keys[y], current.maxchar));
 
 			// Loop through chunks
 			for (j = 0; j < current.chunks.length; j ++)
 			{
 				data[i][j] = [];
+
+				// Pass the Futhork string through unchanged so we can display it later on.
 				data[i][j].futhark = current.chunks[j].toString();
 
 				// Loop through keys
@@ -85,11 +77,13 @@ var E =
 						// Do shifting
 						else
 						{
+							// Shift along a forward Gematria
 							G.reset();
 
 							data[i][j][k].ultrf.chars[l] = G.shift(current.chunks[j][l], tkeys[i][k][m]);
 							data[i][j][k].dltrf.chars[l] = G.shift(current.chunks[j][l], - tkeys[i][k][m]);
 
+							// Shift along a reversed Gematria
 							G.reverse();
 
 							data[i][j][k].ultrr.chars[l] = G.shift(current.chunks[j][l], tkeys[i][k][m]);
@@ -99,7 +93,7 @@ var E =
 						}
 					}
 
-					// Calculate and add IoC of individual mutation.
+					// Calculate IoC of individual mutation.
 					data[i][j][k].dltrf.ioc = N.ioc(data[i][j][k].dltrf.chars);
 					data[i][j][k].dltrr.ioc = N.ioc(data[i][j][k].dltrr.chars);
 					data[i][j][k].ultrf.ioc = N.ioc(data[i][j][k].ultrf.chars);

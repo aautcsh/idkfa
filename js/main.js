@@ -32,8 +32,8 @@ else
 	// Load OEIS sequences.
 	var oeis = O.select(C.oeis);
 
-	// Add custom keys.
-	keys = C.keys;
+	// Add custom keys if any or [0] to have an iteration with no shifting.
+	keys = (C.keys) ? C.keys : [0];
 
 	// Crunch data.
 	data = E.process(chunks, keys);
