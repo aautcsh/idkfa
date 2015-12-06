@@ -64,6 +64,7 @@ var L =
 			}
 		}
 
+
 		console.log(console.log(str));
 
 		// Need this to kill last worker.
