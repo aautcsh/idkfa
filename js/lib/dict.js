@@ -22,6 +22,7 @@ var D =
 		if (!this.table) this.table = {};
 
 		// Load file into buffer.
+		//console.log('Read file!');
 		var raw = F.readFileSync(C.dict.file, C.encoding);
 		var data = [];
 
@@ -32,7 +33,7 @@ var D =
 		raw = _.without(raw.split(/\n/), '');
 
 		// Store word in table.
-		for (var j = 0; j < raw.length; j ++) {this.table[raw[j].trim().toLowerCase()] = true;}
+		for (var j = 0; j < raw.length; j ++) {this.table[raw[j].trim().toUpperCase()] = true;}
 
 		/* way too fucking slow
 		if (C.dict.minchar)
@@ -47,14 +48,13 @@ var D =
 		*/
 
 		// Explicitly include words from config.
-		if (C.dict.include.length > 0) for (var i = 0; i < C.dict.include.length; i ++) this.table[C.dict.include[i]] = true;
+		if (C.dict.include.length > 0) for (var i = 0; i < C.dict.include.length; i ++) this.table[C.dict.include[i].toUpperCase()] = true;
 
 		// Explicitly exclude words from config.
-		if (C.dict.exclude.length > 0) for (var k = 0; k < C.dict.exclude.length; k ++) if (this.table[C.dict.exclude[k]]) this.table[C.dict.exclude[k]] = false;
+		if (C.dict.exclude.length > 0) for (var k = 0; k < C.dict.exclude.length; k ++) if (this.table[C.dict.exclude[k]]) this.table[C.dict.exclude[k].toUpperCase()] = false;
 	}
 };
 
-console.log(D.find('banana'));
-
+//console.log(D.find('banana'));
 
 module.exports = D;

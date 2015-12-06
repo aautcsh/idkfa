@@ -55,23 +55,21 @@ var N =
 		var frequency = {};
 		var foo, char;
 
+		// Count char frequency.
 		for (var i = 0; i < allchars; i ++)
 		{
 			char = clone[i].toUpperCase();
 			frequency[char] = frequency[char] ? frequency[char] + 1 : 1;
 		}
 
-		_.each(frequency, function (a, b, c)
-		{
-			c[b] = c[b] * (c[b] - 1);
-		});
-
+		// Calculate denominator.
+		_.each(frequency, function (a, b, c) {c[b] = c[b] * (c[b] - 1);});
 		var baz = (_.values(frequency));
 		var sum = 0;
-
 		for (var k = 0; k < baz.length; k ++) sum += baz[k];
 
-		return sum / (allchars * (allchars - 1) / 26);
+		// Calculate and return Ioc.
+		return sum / (allchars * (allchars - 1) / 29);
 	}
 };
 

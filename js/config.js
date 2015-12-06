@@ -9,8 +9,7 @@ var C =
 {
 	"keys":
 	[
-		[0],
-		'divinity'
+		[0]
 	],
 
 	"raw": "./data/liber",
@@ -94,11 +93,11 @@ var C =
 
 	"dict":
 	{
-		"file": "../../data/word",
+		"file": "./data/word",
 		"minchar": 2,
 		"maxchar": 6,
 		"exclude": ['i', 'he', 'cat', 'dog'],
-		"include": ['banana']
+		"include": ['banana', 'ninja']
 	}
 };
 
