@@ -14,7 +14,7 @@ var D =
 	"find": function (word)
 	{
 		if (!this.table) this.select(0, 6);
-		if (this.table[word]) return true;
+		if (this.table[word] === true) return true;
 	},
 
 	"select": function (minchar, maxchar, include, exclude)
@@ -51,7 +51,7 @@ var D =
 		if (C.dict.include.length > 0) for (var i = 0; i < C.dict.include.length; i ++) this.table[C.dict.include[i].toUpperCase()] = true;
 
 		// Explicitly exclude words from config.
-		if (C.dict.exclude.length > 0) for (var k = 0; k < C.dict.exclude.length; k ++) if (this.table[C.dict.exclude[k]]) this.table[C.dict.exclude[k].toUpperCase()] = false;
+		if (C.dict.exclude.length > 0) for (var k = 0; k < C.dict.exclude.length; k ++) if (this.table[C.dict.exclude[k].toUpperCase()]) this.table[C.dict.exclude[k].toUpperCase()] = false;
 	}
 };
 

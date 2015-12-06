@@ -17,6 +17,8 @@ var	CPU	= require('os').cpus().length;
 // Fork on multi core.
 if (CL.isMaster)
 {
+	CPU = 1;
+
 	while (CPU --) CL.fork();
 	CL.on('SIGINT', function () {process.exit(0);});
 }
@@ -27,7 +29,7 @@ else
 	var keys = [], data = [];
 
 	// Load Liber.
-	var chunks = S.select({s:[0]});
+	var chunks = S.select({q:[0,1,2]});
 
 	// Load OEIS sequences.
 	//var oeis = O.select(C.oeis);

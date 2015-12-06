@@ -14,7 +14,7 @@ var L =
 	{
 		//console.dir(data[0]);
 
-		var str = '';
+		var str = '\n';
 
 		// Loop Selectors
 		for (var i = 0; i < data.length; i ++)
@@ -31,7 +31,7 @@ var L =
 				// Display chunk data.
 				for (var k = 0; k < data[i][j].length; k ++)
 				{
-					str += 'Key: ' + k + '\n\n';
+					str += chalk.bold('Key: ' + k) + '\n\n';
 
 					// Prepare IoC
 					var ultrfioc = (data[i][j][k].ultrf.ioc).toString().substring(0, 10);
@@ -40,7 +40,6 @@ var L =
 					var dltrrioc = (data[i][j][k].dltrr.ioc).toString().substring(0, 10);
 
 					// Color Ioc
-
 					ultrfioc = (data[i][j][k].ultrf.ioc >= cnf.ioc.low.value && data[i][j][k].ultrf.ioc < cnf.ioc.medium.value) ? chalk.green(ultrfioc) : ultrfioc;
 					dltrfioc = (data[i][j][k].dltrf.ioc >= cnf.ioc.low.value && data[i][j][k].dltrf.ioc < cnf.ioc.medium.value) ? chalk.green(dltrfioc) : dltrfioc;
 					ultrrioc = (data[i][j][k].ultrr.ioc >= cnf.ioc.low.value && data[i][j][k].ultrr.ioc < cnf.ioc.medium.value) ? chalk.green(ultrrioc) : ultrrioc;
