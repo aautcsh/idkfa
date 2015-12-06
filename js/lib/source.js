@@ -5,92 +5,85 @@
 //	Data
 //
 
-var cnf	= require('../config.js');
-var fnc	= require('./functions.js');
-var fs	= require('fs');
+var C	= require('../config.js');
+var F	= require('fs');
 var _	= require('underscore');
 
 var D =
 {
-	"select": function(chunks)
+	"get": function (what)
 	{
-		// Load Liber Primus into buffer.
-		var raw = fs.readFileSync(cnf.raw, cnf.encoding);
+		var raw = this.load();
+		if (typeof(raw) !== "string" || raw.length < 1)	return;
 
-		// Check if there is data in Liber Primus
-		if (typeof(raw) !== "string" || raw.length < 1)
-		{
-			console.log('Error: File "' + cnf.raw + '" contains no data.');
-			return;
-		}
+		var rxWord = new RegExp('[&$\/%\s]', 'g');
+		var rxClause = new RegExp('[&$\/%\s]', 'g');
+		var rxParagraph = new RegExp('[$%\/\s]', 'g');
+		var rxSegment = new RegExp('[&\/%\s]', 'g');
+		var rxLine = new RegExp('[&$%\s]', 'g');
+		var rxPage = new RegExp('[&$\/\s]', 'g');
+		var rxDot = new RegExp('[.]', 'g');
 
-		// Selectors to return chunks of data.
-		var selectors =
+		var getter =
 		{
-			"w": function() {return raw.replace(/[.]/g, '-').replace(/[&$\/%\s]/g, '').split('-').noempty();},	// word
-			"c": function() {return raw.replace(/[&$\/%\s]/g, '').split('.').noempty();},						// clause
-			"p": function() {return raw.replace(/[.]/g, '-').replace(/[$%\/\s]/g, '').split('&').noempty();},	// paragraph
-			"s": function() {return raw.replace(/[.]/g, '-').replace(/[&\/%\s]/g, '').split('$').noempty();},	// section
-			"l": function() {return raw.replace(/[.]/g, '-').replace(/[&$%\s]/g, '').split('/').noempty();},	// line
-			"q": function() {return raw.replace(/[.]/g, '-').replace(/[&$\/\s]/g, '').split('%').noempty();}	// page
+			"w": function () {return _.without(raw.replace(rxDot, C.delimiter.word).replace(rxWord, '').split(C.delimiter.word), undefined);},
+			"c": function () {return _.without(raw.replace(rxClause, '').split(C.delimiter.clause), undefined);},
+			"p": function () {return _.without(raw.replace(rxDot, C.delimiter.word).replace(rxParagraph, '').split(C.delimiter.paragraph), undefined);},
+			"s": function () {return _.without(raw.replace(rxDot, C.delimiter.word).replace(rxSegment, '').split(C.delimiter.segment), undefined);},
+			"l": function () {return _.without(raw.replace(rxDot, C.delimiter.word).replace(rxLine, '').split(C.delimiter.line), undefined);},
+			"q": function () {return _.without(raw.replace(rxDot, C.delimiter.word).replace(rxPage, '').split(C.delimiter.page), undefined);},
 		};
 
-		// Will hold selected chunks
-		var data = [];
-		var all = [];
+		var data = [], liber = [];
+		var selector = Object.keys(what);
+		var leni = selector.length;
 
-		// Loop through chunks
-		for(var i in chunks)
+		// Loop through selectors (w,c,p,s,l,q)
+		for (var i = 0; i < leni; i ++)
 		{
-			if (selectors[i])
+			data[selector[i]] = {};
+			data[selector[i]].chunks = [];
+			data[selector[i]].maxchar = 0;
+
+			// Grab Liber by selector
+			if (getter[selector[i]]) liber[i] = getter[selector[i]]();
+			else continue;
+
+			var lenj = what[selector[i]].length;
+
+			if (lenj === 0) data[selector[i]].chunks = liber[i];
+
+			else if (lenj > 0)
 			{
-				// Get data.
-				data[i] = [];
-				data[i].maxchar = 0;
-				data[i].chunks = [];
-				all[i] = selectors[i]();
-
-				// Strip data of unneeded chunks.
-				if (chunks[i].length === 0)
+				// Loop through specified chunks
+				for (var j = 0; j < lenj; j ++)
 				{
-					data[i].chunks = all[i];
-				}
+					var chunk = what[selector[i]][j];
 
-				else if(chunks[i].length > 0)
-				{
-					for (var j = 0; j < chunks[i].length; j ++)
-					{
-						if(chunks[i][j] > all[i].length)
-						{
-							continue;
-						}
-						else
-						{
-							data[i].chunks.push((all[i].slice(chunks[i][j], chunks[i][j] + 1).toString()));
-						}
-					}
-				}
+					if (chunk > liber[i].length) continue;
+					else data[selector[i]].chunks.push((liber[i].slice(chunk, chunk + 1).toString()));
 
-				// Clean chunks of leading/repeating/trailing dashes and find length of longest string.
-				for(var x = 0; x < data[i].chunks.length; x ++)
-				{
-					data[i].chunks[x] = data[i].chunks[x].replace(/^-*|-{2,}|-*$/g, '');
-
-					var strlen = data[i].chunks[x].replace(/-/g, '').length;
-
-					if(strlen > data[i].maxchar) data[i].maxchar = strlen;
 				}
 			}
 
-			else
+			else continue;
+
+			// Clean chunks of leading/trailing dashes and find length of longest chunk.
+			for (var k = 0; k < data[selector[i]].chunks.length; k ++)
 			{
-				console.log('Error: Can not select by: ' + i);
-				return;
+				data[selector[i]].chunks[k] = data[selector[i]].chunks[k].replace(/\s/g, '').replace(/^-*|-*$/g, '');
+				var strlen = data[selector[i]].chunks[k].replace(/-/g, '').length;
+				if(strlen > data[selector[i]].maxchar) data[selector[i]].maxchar = strlen;
 			}
 		}
 
 		return data;
-	}
+	},
+
+	"load": function ()
+	 {
+	 	return F.readFileSync(C.raw, C.encoding);
+	 }
 };
 
 module.exports = D;

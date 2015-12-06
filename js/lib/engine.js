@@ -60,31 +60,13 @@ var E =
 					// Loop through chars
 					for (l = 0, m = 0; l < current.chunks[j].length; l ++)
 					{
-						// Handle word delimiter
-						if (current.chunks[j][l] === '-')
+						// Check if char should pass through unchanged.
+						if (C.passthrough[current.chunks[j][l]])
 						{
-							data[i][j][k].dltrf.chars[l] = '-';
-							data[i][j][k].dltrr.chars[l] = '-';
-							data[i][j][k].ultrf.chars[l] = '-';
-							data[i][j][k].ultrr.chars[l] = '-';
-						}
-
-						// Handle clear text F
-						else if (current.chunks[j][l] === 'F')
-						{
-							data[i][j][k].dltrf.chars[l] = 'F';
-							data[i][j][k].dltrr.chars[l] = 'F';
-							data[i][j][k].ultrf.chars[l] = 'F';
-							data[i][j][k].ultrr.chars[l] = 'F';
-						}
-
-						// Handle clear text 7
-						else if (current.chunks[j][l] === '7')
-						{
-							data[i][j][k].dltrf.chars[l] = '7';
-							data[i][j][k].dltrr.chars[l] = '7';
-							data[i][j][k].ultrf.chars[l] = '7';
-							data[i][j][k].ultrr.chars[l] = '7';
+							data[i][j][k].dltrf.chars[l] = current.chunks[j][l];
+							data[i][j][k].dltrr.chars[l] = current.chunks[j][l];
+							data[i][j][k].ultrf.chars[l] = current.chunks[j][l];
+							data[i][j][k].ultrr.chars[l] = current.chunks[j][l];
 						}
 
 						// Do shifting
@@ -106,13 +88,13 @@ var E =
 						}
 					}
 
-					// Make some room to shove in words.
+					// Make some room for words.
 					data[i][j][k].ultrf.words = [];
 					data[i][j][k].dltrf.words = [];
 					data[i][j][k].ultrr.words = [];
 					data[i][j][k].dltrr.words = [];
 
-					// Make some room to shove in word frequencies.
+					// Make some room for word frequencies.
 					data[i][j][k].ultrf.frequency = [];
 					data[i][j][k].dltrf.frequency = [];
 					data[i][j][k].ultrr.frequency = [];
