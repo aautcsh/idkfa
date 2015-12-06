@@ -29,7 +29,7 @@ else
 	var keys = [], data = [];
 
 	// Load Liber.
-	var chunks = S.select({s:[0,2,3,4]});
+	var chunks = S.select({s:[8]});
 
 	// Load OEIS sequences.
 	//var oeis = O.select(C.oeis);
