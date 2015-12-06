@@ -56,10 +56,10 @@ var L =
 					dltrrioc = (data[i][j][k].dltrr.ioc >= cnf.ioc.high.value) ? chalk.red(dltrrioc) : dltrrioc;
 
 					// Glue together string
-					str += 'ULF:\t' + ultrfioc + '\t' + data[i][j][k].ultrf.chars.toString().substring(0, 88) + '\n';
-					str += 'DLF:\t' + dltrfioc + '\t' + data[i][j][k].dltrf.chars.toString().substring(0, 88) + '\n';
-					str += 'ULR:\t' + ultrrioc + '\t' + data[i][j][k].ultrr.chars.toString().substring(0, 88) + '\n';
-					str += 'DLR:\t' + dltrrioc + '\t' + data[i][j][k].dltrr.chars.toString().substring(0, 88) + '\n';
+					str += 'ULF:\t' + ultrfioc + '\t' + data[i][j][k].ultrf.chars.join('').replace(/[-]/g, '  ').substring(0, 88) + '\n';
+					str += 'DLF:\t' + dltrfioc + '\t' + data[i][j][k].dltrf.chars.join('').replace(/[-]/g, '  ').substring(0, 88) + '\n';
+					str += 'ULR:\t' + ultrrioc + '\t' + data[i][j][k].ultrr.chars.join('').replace(/[-]/g, '  ').substring(0, 88) + '\n';
+					str += 'DLR:\t' + dltrrioc + '\t' + data[i][j][k].dltrr.chars.join('').replace(/[-]/g, '  ').substring(0, 88) + '\n';
 					str += '\n';
 
 					// Glue matched words to the end
