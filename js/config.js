@@ -7,7 +7,12 @@
 
 var C =
 {
-	"keys": [], // [0], 'divinity', [3], 'firfumference'
+	"keys":
+	[
+
+
+
+	], // [0], 'divinity', [3], 'firfumferenfe'
 
 	"raw": "./data/liber",
 
@@ -52,3 +57,11 @@ var C =
 };
 
 module.exports = C;
+
+
+/*
+	'INSTAR', 'WIDSOM', 'CICADA', 'JOURNEY', 'BELIEVE', 'STUDENT', 'FAREWELL', 'KWESTION', 'DISCOVER',
+	'DIVINITY', 'STRUGGLE', 'SUFFERING', 'KNOWLEDGE', 'ENCRYPTED', 'ADHERENCE', 'PILGRIMAGE', 'EXPERIENCE',
+	'CONSUMPTION', 'ENLIGHTENED', 'UNREASONABLE', 'INTELLIGENCE', 'PRESERVATION', 'CONSCIOUSNESS',
+	'INTERCONNECTEDNESS'
+*/

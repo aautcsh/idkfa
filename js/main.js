@@ -29,12 +29,12 @@ else
 	var keys = [], data = [];
 
 	// Load Liber.
-	var chunks = S.select({s:[3]});
+	var chunks = S.select({s:[0]});
 
 	// Load OEIS sequences.
 	//var oeis = O.select(C.oeis);
 
-	// Add custom keys if any or [0] to have an iteration with no shifting.
+	// Add custom keys or [0] to have an iteration with no shifting.
 	keys = (C.keys.length > 0) ? C.keys : [[0]];
 
 	// Crunch data.

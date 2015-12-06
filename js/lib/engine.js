@@ -78,6 +78,15 @@ var E =
 							data[i][j][k].ultrr.chars[l] = 'F';
 						}
 
+						// Handle clear text 7
+						else if (current.chunks[j][l] === '7')
+						{
+							data[i][j][k].dltrf.chars[l] = '7';
+							data[i][j][k].dltrr.chars[l] = '7';
+							data[i][j][k].ultrf.chars[l] = '7';
+							data[i][j][k].ultrr.chars[l] = '7';
+						}
+
 						// Do shifting
 						else
 						{
