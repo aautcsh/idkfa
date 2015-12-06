@@ -5,7 +5,6 @@
 //	Numbers
 //
 
-var F	= require('./functions.js');
 var nt	= require('number-theory');
 var pi	= require('pi-number');
 var _	= require('underscore');

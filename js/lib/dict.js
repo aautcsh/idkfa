@@ -35,7 +35,7 @@ var D =
 		// Store word in table.
 		for (var j = 0; j < raw.length; j ++) {this.table[raw[j].trim().toUpperCase()] = true;}
 
-		/* way too fucking slow
+		/* too slow
 		if (C.dict.minchar)
 		{
 			for (var l = 0; l < Object.keys(this.table).length; l ++)
