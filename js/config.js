@@ -7,7 +7,7 @@
 
 var C =
 {
-	"keys": [[0], 'divinity', [3]],
+	"keys": [], // [0], 'divinity', [3], 'firfumference'
 
 	"raw": "./data/liber",
 
@@ -46,7 +46,7 @@ var C =
 
 		"minchar": 2,
 		"maxchar": 6,
-		"include": ['banana', 'ninja', 'WIS/ZDOM'],
+		"include": ['banana', 'ninja', 'WIS/ZDOM', 'C/KOAN', 'MAS/ZTER', 'PRIMES/Z'],
 		"exclude": ['i', 'he', 'cat', 'dog']
 	}
 };

@@ -67,28 +67,28 @@ var L =
 
 					for(var ii = 0; ii < Object.keys(data[i][j][k].ultrf.frequency).length; ii ++)
 					{
-						str += Object.keys(data[i][j][k].ultrf.frequency)[ii] + ' ';
+						str += chalk.blue(Object.keys(data[i][j][k].ultrf.frequency)[ii]) + ' ';
 					}
 
 					str += '\n' + 'DLF:\t';
 
 					for(var jj = 0; jj < Object.keys(data[i][j][k].dltrf.frequency).length; jj ++)
 					{
-						str += Object.keys(data[i][j][k].dltrf.frequency)[jj] + ' ';
+						str += chalk.blue(Object.keys(data[i][j][k].dltrf.frequency)[jj]) + ' ';
 					}
 
 					str += '\n' + 'ULR:\t';
 
 					for(var kk = 0; kk < Object.keys(data[i][j][k].ultrr.frequency).length; kk ++)
 					{
-						str += Object.keys(data[i][j][k].ultrr.frequency)[kk] + ' ';
+						str += chalk.blue(Object.keys(data[i][j][k].ultrr.frequency)[kk]) + ' ';
 					}
 
 					str += '\n' + 'DLR:\t';
 
 					for(var ll = 0; ll < Object.keys(data[i][j][k].dltrr.frequency).length; ll ++)
 					{
-						str += Object.keys(data[i][j][k].dltrr.frequency)[ll] + ' ';
+						str += chalk.blue(Object.keys(data[i][j][k].dltrr.frequency)[ll]) + ' ';
 					}
 
 					str += '\n\n';

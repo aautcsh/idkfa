@@ -29,20 +29,17 @@ else
 	var keys = [], data = [];
 
 	// Load Liber.
-	var chunks = S.select({q:[0,1,2]});
+	var chunks = S.select({s:[0,2,3,4]});
 
 	// Load OEIS sequences.
 	//var oeis = O.select(C.oeis);
-	//console.log(oeis[1] + ' loaded');
 
 	// Add custom keys if any or [0] to have an iteration with no shifting.
 	keys = (C.keys.length > 0) ? C.keys : [[0]];
-	//console.log(keys);
 
 	// Crunch data.
 	data = E.process(chunks, keys);
 
 	// Display data and exit.
-	L.toScreen(data);
 	if (L.toScreen(data)) process.exit(0);
 }
