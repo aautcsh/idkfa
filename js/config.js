@@ -9,7 +9,7 @@ var C =
 {
 	"keys":
 	[
-		[0]
+
 	],
 
 	"raw": "./data/liber",
@@ -27,27 +27,6 @@ var C =
 	},
 
 	"ioc":
-	{
-		"high":
-		{
-			"max": 3.0,
-			"min": 1.5
-		},
-
-		"medium":
-		{
-			"max": 1.5,
-			"min": 1.3
-		},
-
-		"low":
-		{
-			"max": 1.3,
-			"min": 1.2
-		}
-	},
-
-	"coi":
 	{
 		"high":
 		{
@@ -97,7 +76,7 @@ var C =
 		"minchar": 2,
 		"maxchar": 6,
 		"exclude": ['i', 'he', 'cat', 'dog'],
-		"include": ['banana', 'ninja']
+		"include": ['banana', 'ninja', 'WIS/ZDOM']
 	}
 };
 

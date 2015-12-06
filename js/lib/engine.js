@@ -124,6 +124,8 @@ var E =
 						if ((D.find(wordsdltrr[aa]))) data[i][j][k].dltrr.words.push(wordsdltrr[aa]);
 					}
 
+					//console.log(data[i][j][k].ultrf.words, data[i][j][k].dltrf.words, data[i][j][k].ultrr.words, data[i][j][k].dltrr.words);
+
 					// Count frequencies for: UP LTR FORWARD.
 					if (data[i][j][k].ultrf.words.length > 0)
 					{
@@ -140,12 +142,12 @@ var E =
 					if (data[i][j][k].dltrf.words.length > 0)
 					{
 						var dltrff = [], dltrfword;
-						for (var jj = 0; jj < data[i][j][k].dltr.words.length; jj ++)
+						for (var jj = 0; jj < data[i][j][k].dltrf.words.length; jj ++)
 						{
-							dltrfword = data[i][j][k].dltr.words[jj];
+							dltrfword = data[i][j][k].dltrf.words[jj];
 							dltrff[dltrfword] = dltrff[dltrfword] ? dltrff[dltrfword] + 1 : 1;
 						}
-						data[i][j][k].dltr.frequency = dltrff;
+						data[i][j][k].dltrf.frequency = dltrff;
 					}
 
 					// Count frequencies for: UP LTR REVERSED.

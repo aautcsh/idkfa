@@ -19,7 +19,7 @@ var L =
 		// Loop Selectors
 		for (var i = 0; i < data.length; i ++)
 		{
-			str += 'Selector: ' + i + '\n\n';
+			//str += 'Selector: ' + i + '\n\n';
 
 			// Loop Chunks
 			for (var j = 0; j < data[i].length; j ++)
@@ -28,35 +28,71 @@ var L =
 				str += data[i][j].futhark.substring(0, 111) + '\n';
 				str += '----------------------------------------------------------------------------------------------------------------' + '\n\n';
 
+				// Display chunk data.
 				for (var k = 0; k < data[i][j].length; k ++)
 				{
 					str += 'Key: ' + k + '\n\n';
 
-					var dltrfioc = ' ' + (data[i][j][k].dltrf.ioc).toString().substring(0,10) + ' ';
-					var dltrrioc = ' ' + (data[i][j][k].dltrr.ioc).toString().substring(0,10) + ' ';
-					var ultrfioc = ' ' + (data[i][j][k].ultrf.ioc).toString().substring(0,10) + ' ';
-					var ultrrioc = ' ' + (data[i][j][k].ultrr.ioc).toString().substring(0,10) + ' ';
+					// Prepare IoC
+					var ultrfioc = (data[i][j][k].ultrf.ioc).toString().substring(0, 10);
+					var dltrfioc = (data[i][j][k].dltrf.ioc).toString().substring(0, 10);
+					var ultrrioc = (data[i][j][k].ultrr.ioc).toString().substring(0, 10);
+					var dltrrioc = (data[i][j][k].dltrr.ioc).toString().substring(0, 10);
 
-					dltrfioc = (dltrfioc > cnf.ioc.high.min) ? chalk.bgGreen(dltrfioc) : dltrfioc;
-					dltrrioc = (dltrrioc > cnf.ioc.high.min) ? chalk.bgGreen(dltrrioc) : dltrrioc;
-					ultrfioc = (ultrfioc > cnf.ioc.high.min) ? chalk.bgGreen(ultrfioc) : ultrfioc;
-					ultrrioc = (ultrrioc > cnf.ioc.high.min) ? chalk.bgGreen(ultrrioc) : ultrrioc;
+					// Color Ioc
 
-					dltrfioc = (dltrfioc > cnf.ioc.medium.min && dltrfioc < cnf.ioc.medium.max) ? chalk.green(dltrfioc) : dltrfioc;
-					dltrrioc = (dltrrioc > cnf.ioc.medium.min && dltrrioc < cnf.ioc.medium.max) ? chalk.green(dltrrioc) : dltrrioc;
-					ultrfioc = (ultrfioc > cnf.ioc.medium.min && ultrfioc < cnf.ioc.medium.max) ? chalk.green(ultrfioc) : ultrfioc;
-					ultrrioc = (ultrrioc > cnf.ioc.medium.min && ultrrioc < cnf.ioc.medium.max) ? chalk.green(ultrrioc) : ultrrioc;
+					ultrfioc = (data[i][j][k].ultrf.ioc >= cnf.ioc.low.value && data[i][j][k].ultrf.ioc < cnf.ioc.medium.value) ? chalk.green(ultrfioc) : ultrfioc;
+					dltrfioc = (data[i][j][k].dltrf.ioc >= cnf.ioc.low.value && data[i][j][k].dltrf.ioc < cnf.ioc.medium.value) ? chalk.green(dltrfioc) : dltrfioc;
+					ultrrioc = (data[i][j][k].ultrr.ioc >= cnf.ioc.low.value && data[i][j][k].ultrr.ioc < cnf.ioc.medium.value) ? chalk.green(ultrrioc) : ultrrioc;
+					dltrrioc = (data[i][j][k].dltrr.ioc >= cnf.ioc.low.value && data[i][j][k].dltrr.ioc < cnf.ioc.medium.value) ? chalk.green(dltrrioc) : dltrrioc;
 
-					dltrfioc = (dltrfioc < cnf.ioc.low.max) ? chalk.dim(dltrfioc) : dltrfioc;
-					dltrrioc = (dltrrioc < cnf.ioc.low.max) ? chalk.dim(dltrrioc) : dltrrioc;
-					ultrfioc = (ultrfioc < cnf.ioc.low.max) ? chalk.dim(ultrfioc) : ultrfioc;
-					ultrrioc = (ultrrioc < cnf.ioc.low.max) ? chalk.dim(ultrrioc) : ultrrioc;
+					ultrfioc = (data[i][j][k].ultrf.ioc >= cnf.ioc.medium.value && data[i][j][k].ultrf.ioc < cnf.ioc.high.value) ? chalk.yellow(ultrfioc) : ultrfioc;
+					dltrfioc = (data[i][j][k].dltrf.ioc >= cnf.ioc.medium.value && data[i][j][k].dltrf.ioc < cnf.ioc.high.value) ? chalk.yellow(dltrfioc) : dltrfioc;
+					ultrrioc = (data[i][j][k].ultrr.ioc >= cnf.ioc.medium.value && data[i][j][k].ultrr.ioc < cnf.ioc.high.value) ? chalk.yellow(ultrrioc) : ultrrioc;
+					dltrrioc = (data[i][j][k].dltrr.ioc >= cnf.ioc.medium.value && data[i][j][k].dltrr.ioc < cnf.ioc.high.value) ? chalk.yellow(dltrrioc) : dltrrioc;
 
+					ultrfioc = (data[i][j][k].ultrf.ioc >= cnf.ioc.high.value) ? chalk.red(ultrfioc) : ultrfioc;
+					dltrfioc = (data[i][j][k].dltrf.ioc >= cnf.ioc.high.value) ? chalk.red(dltrfioc) : dltrfioc;
+					ultrrioc = (data[i][j][k].ultrr.ioc >= cnf.ioc.high.value) ? chalk.red(ultrrioc) : ultrrioc;
+					dltrrioc = (data[i][j][k].dltrr.ioc >= cnf.ioc.high.value) ? chalk.red(dltrrioc) : dltrrioc;
+
+					// Glue together string
 					str += 'ULF:\t' + ultrfioc + '\t' + data[i][j][k].ultrf.chars.toString().substring(0, 88) + '\n';
 					str += 'DLF:\t' + dltrfioc + '\t' + data[i][j][k].dltrf.chars.toString().substring(0, 88) + '\n';
 					str += 'ULR:\t' + ultrrioc + '\t' + data[i][j][k].ultrr.chars.toString().substring(0, 88) + '\n';
 					str += 'DLR:\t' + dltrrioc + '\t' + data[i][j][k].dltrr.chars.toString().substring(0, 88) + '\n';
 					str += '\n';
+
+					// Glue matched words to the end
+					str += 'ULF:\t';
+
+					for(var ii = 0; ii < Object.keys(data[i][j][k].ultrf.frequency).length; ii ++)
+					{
+						str += Object.keys(data[i][j][k].ultrf.frequency)[ii] + ' ';
+					}
+
+					str += '\n' + 'DLF:\t';
+
+					for(var jj = 0; jj < Object.keys(data[i][j][k].dltrf.frequency).length; jj ++)
+					{
+						str += Object.keys(data[i][j][k].dltrf.frequency)[jj] + ' ';
+					}
+
+					str += '\n' + 'ULR:\t';
+
+					for(var kk = 0; kk < Object.keys(data[i][j][k].ultrr.frequency).length; kk ++)
+					{
+						str += Object.keys(data[i][j][k].ultrr.frequency)[kk] + ' ';
+					}
+
+					str += '\n' + 'DLR:\t';
+
+					for(var ll = 0; ll < Object.keys(data[i][j][k].dltrr.frequency).length; ll ++)
+					{
+						str += Object.keys(data[i][j][k].dltrr.frequency)[ll] + ' ';
+					}
+
+					str += '\n\n';
 
 				}
 
@@ -65,7 +101,7 @@ var L =
 		}
 
 
-		console.log(console.log(str));
+		console.log(str);
 
 		// Need this to kill last worker.
 		process.exit(0);

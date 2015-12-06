@@ -35,12 +35,12 @@ else
 
 	// Add custom keys if any or [0] to have an iteration with no shifting.
 	keys = (C.keys.length > 0) ? C.keys : [[0]];
-
 	//console.log(keys);
 
 	// Crunch data.
 	data = E.process(chunks, keys);
 
 	// Display data and exit.
+	L.toScreen(data);
 	if (L.toScreen(data)) process.exit(0);
 }
