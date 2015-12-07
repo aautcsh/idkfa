@@ -99,8 +99,8 @@ var L =
 			}
 		}
 
-		//console.log(str);
-		process.exit(0); // Need this to kill last worker.
+		console.log(str);
+		//process.exit(0); // Need this to kill last worker.
 	}
 };
 

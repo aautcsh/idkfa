@@ -16,14 +16,18 @@ var O =
 		var data = this.load();
 		var seq = [], clean = [];
 
-		//console.log(data);
-
+		// Handle array.
 		if (_.isArray(sequence)) for (var i = 0; i < sequence.length; i ++) seq.push(this.table[sequence[i]]);
+
+		// Handle String.
 		else if (_.isString(sequence)) seq.push(this.table[sequence]);
+
+		// Handle range.
 		else if (_.isNumber(Math.floor(arguments[0])) && _.isNumber(Math.floor(arguments[1])))
 		{
 			var keys = Object.keys(this.table);
 
+			// Calculate sane offsets.
 			if (!arguments[1]) arguments[1] = arguments[0] + 1;
 			if (arguments[1] <= arguments[0] || arguments[1] > keys.length) arguments[1] = keys.length;
 			if (arguments[0] < 0 || arguments[0] >= keys.length) arguments[0] = arguments[1] - 1;
@@ -31,11 +35,10 @@ var O =
 		}
 
 		// Do some sanitation.
-		for (var k = 0; k < seq.length; k ++) if (this.check(seq[k])) clean.push(seq[k]);
+		for (var k = 0; k < seq.length; k ++) if (seq[k].length > C.oeis.minlength && this.check(seq[k])) clean.push(seq[k]);
 
-		if (clean < seq) console.log('Warning: Some Sequences were filtered.');
-
-		return clean;
+		// If sequences were filtered pass along -1 so we can react to it.
+		return (clean.length < seq.length) ? [clean, -1] : clean;
 	},
 
 	"check": function (sequence)

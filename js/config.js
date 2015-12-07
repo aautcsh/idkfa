@@ -34,16 +34,17 @@ var C =
 	{
 		"high": {"value": 1.5},
 		"medium": {"value": 1.3},
-		"low": {"value": 1.2,},
+		"low": {"value": 1.1,},
 	},
 
 	"oeis":
 	{
 		"file": "./data/oeis",
 
-		"minvalue":	-99999999,
-		"maxvalue":	99999999,
-		"limit":	10000
+		"minvalue":		-99999999,
+		"maxvalue":		99999999,
+		"minlength":	5,
+		"limit":		10000
 	},
 
 	"dict":

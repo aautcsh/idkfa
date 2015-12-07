@@ -28,21 +28,23 @@ if (CL.isMaster)
 else
 {
 	// Container.
-	var keys = [], data = [];
+	var data = [], keys = [];
 
 	// Load Liber.
-	var data = S.get({s:[5]});
+	var data = S.get({s:[0]});
 
-	// Load OEIS sequences.
-	var oeis = O.select(1876, 22222);
-	console.log(oeis);
+	// Load OEIS sequences and add them as keys.
+	//var oeis = O.select(0);
+	//if (oeis[1] === -1) console.log('\nAttention: OEIS sequences were filtered. ' + oeis[0].length + ' passed.');
+	//if (oeis[0].length > 0)for (var i = 0; i < oeis[0].length; i ++) K.add(oeis[0][i]);
 
-	// Add custom keys or [0] to have an iteration with no shifting.
-	keys = (C.keys.length > 0) ? C.keys : [[0]];
+	// Add some more keys
+	K.add(N.phi());
 
 	// Crunch data.
-	data = E.process(data, keys);
+	data = E.process(data);
 
 	// Display data and exit.
-	if (L.toScreen(data)) process.exit(0);
+	L.toScreen(data);
+	//if (L.toScreen(data)) process.exit(0);
 }

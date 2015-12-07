@@ -30,8 +30,9 @@ var E =
 			tkeys[i] = [];
 			current = chunks[Object.keys(chunks)[i]];
 
-			// Add keys to key pool.
-			for (var x = 0; x < keys.length; x ++) K.add(keys[x]);
+			// Add keys from config or [0] to add an iteration with no shift.
+			if (C.keys.length > 0) for (var w = 0; w < C.keys.length; w ++ ) K.add(C.keys[w]);
+			else K.add([0]);
 
 			// Pad keys to current chunks maxchar.
 			for (var y = 0; y < K.keys.length; y ++) tkeys[i].push(K.pad(K.keys[y], current.maxchar));
