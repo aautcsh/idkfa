@@ -23,8 +23,14 @@ O.select(0, 100)
 
 CMDline options are not yet implemented so you will have to edit main.js and run it.
 
+
+```
+#!bash
+
 $ npm install
 $ node ./main.js
+```
+
 
 ### Contribution guidelines ###
 
