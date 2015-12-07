@@ -13,7 +13,13 @@ automatically.
 Futhark is shifted up/down a forward and reverse Gematria.
 
 Note: Keys from OEIS are sanitized and sanity checked on values given in config.js.
-So O.select(0, 100) will most likely not return 100 keys.
+So 
+```
+#!node
+
+O.select(0, 100)
+```
+ will most likely not return 100 keys.
 
 ### Setup ###
 
