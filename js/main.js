@@ -39,7 +39,7 @@ else
 	//if (oeis[0].length > 0)for (var i = 0; i < oeis[0].length; i ++) K.add(oeis[0][i]);
 
 	// Add some more keys
-	K.add(N.phi());
+	K.add(N.phi(100));
 
 	// Crunch data.
 	data = E.process(data);
