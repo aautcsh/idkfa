@@ -1,7 +1,6 @@
 ### Liber Primus Translator ###
 
 Takes Futhark and keys to produce clear text.
-
 Calculates IoC and matches words against a dictionary along the way.
 
 Liber can be split by (w)ord, (c)lause, (p)aragraph (s)egment (l)ine (q)age (page).
