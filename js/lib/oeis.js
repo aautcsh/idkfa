@@ -11,8 +11,47 @@ var _ = require('underscore');
 
 var O =
 {
-	"select": function (config)
+	"select": function (sequence)
 	{
+		var data = this.load();
+		var seq = [], clean = [];
+
+		//console.log(data);
+
+		if (_.isArray(sequence)) for (var i = 0; i < sequence.length; i ++) seq.push(this.table[sequence[i]]);
+		else if (_.isString(sequence)) seq.push(this.table[sequence]);
+		else if (_.isNumber(Math.floor(arguments[0])) && _.isNumber(Math.floor(arguments[1])))
+		{
+			var keys = Object.keys(this.table);
+
+			if (!arguments[1]) arguments[1] = arguments[0] + 1;
+			if (arguments[1] <= arguments[0] || arguments[1] > keys.length) arguments[1] = keys.length;
+			if (arguments[0] < 0 || arguments[0] >= keys.length) arguments[0] = arguments[1] - 1;
+			for (var j = arguments[0]; j < arguments[1]; j ++) seq.push(this.table[keys[j]]);
+		}
+
+		// Do some sanitation.
+		for (var k = 0; k < seq.length; k ++) if (this.check(seq[k])) clean.push(seq[k]);
+
+		if (clean < seq) console.log('Warning: Some Sequences were filtered.');
+
+		return clean;
+	},
+
+	"check": function (sequence)
+	{
+		for (var i = 0; i < sequence.length; i ++)
+		{
+			if (sequence[i] < C.oeis.minvalue || sequence[i] > C.oeis.maxvalue) return false;
+		}
+
+		return true;
+	},
+
+	"load": function (config)
+	{
+		if(!this.table) this.table = [];
+
 		// Load file into buffer.
 		var raw = F.readFileSync(C.oeis.file, C.encoding);
 		var data = [];
@@ -36,15 +75,20 @@ var O =
 		raw = _.without(raw, undefined);
 
 		// Remove duplicate items (just in case ;))
-		for(var x = 0; x < raw.length; x ++)
+		for(var j = 0; j < raw.length; j ++)
 		{
-			var current = Object.keys(raw[x])[0];
-			if (!data[current]) data[current] = raw[x][Object.keys(raw[x])[0]];
+			var current = Object.keys(raw[j])[0];
+			//console.log(current);
+
+			if (!data[current]) data[current] = raw[j][Object.keys(raw[j])[0]];
 		}
 
-		// Return data and data.length.
-		return [data, Object.keys(data).length];
+		this.table = data;
 	}
 };
+
+//var foo = O.select(1);
+//var foo = O.select(['A264669', 'A264658']);
+//console.log(foo);
 
 module.exports = O;

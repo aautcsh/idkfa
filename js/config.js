@@ -41,9 +41,8 @@ var C =
 	{
 		"file": "./data/oeis",
 
-		"minchar":	1,
-		"maxchar":	8,
-		"binary": 	false,
+		"minvalue":	-99999999,
+		"maxvalue":	99999999,
 		"limit":	10000
 	},
 

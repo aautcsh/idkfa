@@ -108,3 +108,9 @@ var K =
 //console.log(K.keys);
 
 module.exports = K;
+
+/*
+
+	map (key1, key2, - 1);
+
+*/
