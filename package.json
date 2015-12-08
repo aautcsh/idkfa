@@ -13,7 +13,6 @@
     "minimist": "^1.2.0",
     "number-theory": "^1.0.0",
     "pi-number": "^1.0.0",
-    "request": "^2.67.0",
     "underscore": "^1.8.3"
   },
   "private": true
