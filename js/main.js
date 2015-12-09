@@ -40,7 +40,7 @@ else
 	var data = [], keys = [];
 
 	// Load Liber.
-	var data = S.get({s:[7,9,11,12]});
+	var data = S.get({s:[7,9,0]});
 
 	// Load OEIS sequences and add them as keys.
 	//var oeis = O.select(0);

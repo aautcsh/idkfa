@@ -19,33 +19,34 @@ var E =
 {
 	"process": function (chunks, keys)
 	{
-		var i, j, k, l, m;
-		var tkeys = [], current, data = [];
-		var selectors = Object.keys(chunks).length;
+		var tkeys = [], data = [], current;
 
 		// Loop through Selectors
-		for (i = 0; i < selectors; i ++)
+		for (var i = 0, ii = Object.keys(chunks).length; i < ii; i ++)
 		{
 			data[i] = [];
 			tkeys[i] = [];
 			current = chunks[Object.keys(chunks)[i]];
 
-			// Add keys from config or [0] to add an iteration with no shift.
-			if (C.keys.length > 0) for (var w = 0; w < C.keys.length; w ++ ) K.add(C.keys[w]);
-			else K.add([0]);
 
+			// Need to move this some place else
 			var key01 = N.prime(current.maxchar);
 			var key02 = N.phi(current.maxchar);
-			//var key03 = N.map(key01, N.stream(0, current.maxchar), 's');
+			var key03 = N.map(key01, N.stream(0, current.maxchar), 'p');
 			var key04 = N.weave(key02, key01);
 
-			tkeys[i].push(key04);
+			tkeys[i].push(key01);
+
+			// Add keys from config or [0] to add an iteration with no shift.
+			if (C.keys.length > 0) for (var w = 0, ww = C.keys.length; w < ww; w ++ ) K.add(C.keys[w]);
+			if (!K.keys) K.add([0]);
 
 			// Pad keys to current chunks maxchar.
-			for (var y = 0; y < K.keys.length; y ++) tkeys[i].push(K.pad(K.keys[y], current.maxchar));
+			for (var y = 0, yy = K.keys.length; y < yy; y ++) tkeys[i].push(K.pad(K.keys[y], current.maxchar));
+
 
 			// Loop through chunks
-			for (j = 0; j < current.chunks.length; j ++)
+			for (var j = 0, jj = current.chunks.length; j < jj; j ++)
 			{
 				data[i][j] = [];
 
@@ -53,7 +54,7 @@ var E =
 				data[i][j].futhark = current.chunks[j].toString();
 
 				// Loop through keys
-				for (k = 0; k < tkeys[i].length; k ++)
+				for (var k = 0, kk = tkeys[i].length; k < kk; k ++)
 				{
 					data[i][j][k] = [];
 					data[i][j][k].dltrf = [];
@@ -66,7 +67,7 @@ var E =
 					data[i][j][k].ultrr.chars = [];
 
 					// Loop through chars
-					for (l = 0, m = 0; l < current.chunks[j].length; l ++)
+					for (var l = 0, ll = current.chunks[j].length, m = 0; l < ll; l ++)
 					{
 						// Check if char should pass through unchanged.
 						if (C.passthrough[current.chunks[j][l]])
@@ -92,6 +93,7 @@ var E =
 							data[i][j][k].ultrr.chars[l] = G.shift(current.chunks[j][l], tkeys[i][k][m]);
 							data[i][j][k].dltrr.chars[l] = G.shift(current.chunks[j][l], - tkeys[i][k][m]);
 
+							// Advance key
 							m ++;
 						}
 					}
@@ -115,12 +117,12 @@ var E =
 					var wordsdltrr = data[i][j][k].dltrr.chars.join('').split('-');
 
 					// Word count should be all the same, so we just do 1 loop to look up words.
-					for (var aa = 0; aa < wordsultrf.length; aa ++)
+					for (var n = 0, nn = wordsultrf.length; n < nn; n ++)
 					{
-						if ((D.find(wordsultrf[aa]))) data[i][j][k].ultrf.words.push(wordsultrf[aa]);
-						if ((D.find(wordsdltrf[aa]))) data[i][j][k].dltrf.words.push(wordsdltrf[aa]);
-						if ((D.find(wordsultrr[aa]))) data[i][j][k].ultrr.words.push(wordsultrr[aa]);
-						if ((D.find(wordsdltrr[aa]))) data[i][j][k].dltrr.words.push(wordsdltrr[aa]);
+						if ((D.find(wordsultrf[n]))) data[i][j][k].ultrf.words.push(wordsultrf[n]);
+						if ((D.find(wordsdltrf[n]))) data[i][j][k].dltrf.words.push(wordsdltrf[n]);
+						if ((D.find(wordsultrr[n]))) data[i][j][k].ultrr.words.push(wordsultrr[n]);
+						if ((D.find(wordsdltrr[n]))) data[i][j][k].dltrr.words.push(wordsdltrr[n]);
 					}
 
 					//console.log(data[i][j][k].ultrf.words, data[i][j][k].dltrf.words, data[i][j][k].ultrr.words, data[i][j][k].dltrr.words);
@@ -129,9 +131,9 @@ var E =
 					if (data[i][j][k].ultrf.words.length > 0)
 					{
 						var ultrff = [], ultrfword;
-						for (var ii = 0; ii < data[i][j][k].ultrf.words.length; ii ++)
+						for (var o = 0, oo = data[i][j][k].ultrf.words.length; o < oo; o ++)
 						{
-							ultrfword = data[i][j][k].ultrf.words[ii];
+							ultrfword = data[i][j][k].ultrf.words[o];
 							ultrff[ultrfword] = ultrff[ultrfword] ? ultrff[ultrfword] + 1 : 1;
 						}
 						data[i][j][k].ultrf.frequency = ultrff;
@@ -141,9 +143,9 @@ var E =
 					if (data[i][j][k].dltrf.words.length > 0)
 					{
 						var dltrff = [], dltrfword;
-						for (var jj = 0; jj < data[i][j][k].dltrf.words.length; jj ++)
+						for (var p = 0, pp = data[i][j][k].dltrf.words.length; p < pp; p ++)
 						{
-							dltrfword = data[i][j][k].dltrf.words[jj];
+							dltrfword = data[i][j][k].dltrf.words[p];
 							dltrff[dltrfword] = dltrff[dltrfword] ? dltrff[dltrfword] + 1 : 1;
 						}
 						data[i][j][k].dltrf.frequency = dltrff;
@@ -153,9 +155,9 @@ var E =
 					if (data[i][j][k].ultrr.words.length > 0)
 					{
 						var ultrrf = [], ultrrword;
-						for (var kk = 0; kk < data[i][j][k].ultrr.words.length; kk ++)
+						for (var q = 0, qq = data[i][j][k].ultrr.words.length; q < qq; q ++)
 						{
-							ultrrword = data[i][j][k].ultrr.words[kk];
+							ultrrword = data[i][j][k].ultrr.words[q];
 							ultrrf[ultrrword] = ultrrf[ultrrword] ? ultrrf[ultrrword] + 1 : 1;
 						}
 						data[i][j][k].ultrr.frequency = ultrrf;
@@ -165,9 +167,9 @@ var E =
 					if (data[i][j][k].dltrr.words.length > 0)
 					{
 						var dltrrf = [], dltrrword;
-						for (var ll = 0; ll < data[i][j][k].dltrr.words.length; ll ++)
+						for (var r = 0, rr = data[i][j][k].dltrr.words.length; r < rr; r ++)
 						{
-							dltrrword = data[i][j][k].dltrr.words[ll];
+							dltrrword = data[i][j][k].dltrr.words[r];
 							dltrrf[dltrrword] = dltrrf[dltrrword] ? dltrrf[dltrrword] + 1 : 1;
 						}
 						data[i][j][k].dltrr.frequency = dltrrf;
