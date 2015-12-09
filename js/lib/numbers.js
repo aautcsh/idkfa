@@ -42,6 +42,60 @@ var N =
 		return s;
 	},
 
+	"map": function (a, b, op, mod)
+	{
+		if (a.length !== b.length) return;
+
+		mod = _.isNumber(mod) ? mod : 0;
+
+		var calc =
+		{
+			"s": function (a, b, mod)
+			{
+				var s = [];
+				for (var i = 0, ii = a.length; i < ii; i ++) s.push((a[i] + b[i]) + mod);
+				return s;
+			},
+
+			"d": function (a, b, mod)
+			{
+				var d = [];
+				for (var i = 0, ii = a.length; i < ii; i ++) d.push((a[i] - b[i]) + mod);
+				return d;
+			},
+
+			"p": function (a, b, mod)
+			{
+				var p = [];
+				for (var i = 0, ii = a.length; i < ii; i ++) p.push((a[i] * b[i]) + mod);
+				return p;
+			},
+
+			"q": function (a, b, mod)
+			{
+				var q = [];
+				for (var i = 0, ii = a.length; i < ii; i ++) q.push((((a[i] === 0) ? 1 : a[i]) / b[i]) + mod);
+				return q;
+			},
+
+			"m": function (a, b, mod)
+			{
+				var m = [];
+				for (var i = 0, ii = a.length; i < ii; i ++) m.push((a[i] % b[i]) + mod);
+				return m;
+			}
+		};
+
+		return calc[op](a, b, mod);
+	},
+
+	"weave": function (a, b, mod)
+	{
+		var w = [];
+		for (var i = 0, ii = a.length; i < ii; i ++) {w.push(a[i]); w.push(b[i]);}
+		return w;
+	},
+
 	"ioc": function (data)
 	{
 		// Clone data so original gets passed on unchanged.
@@ -77,5 +131,7 @@ var N =
 //console.log(N.phi(10));
 //var test = "LOREMIPSUMISSIMPLYDUMMYTEXTOFTHEPRINTINGANDTYPESETTINGINDUSTRYLOREMIPSUMHASBEENTHEINDUSTRYSSTANDARDDUMMYTEXTEVERSINCETHESWHENANUNKNOWNPRINTERTOOKAGALLEYOFTYPEANDSCRAMBLEDITTOMAKEATYPESPECIMENBOOKITHASSURVIVEDNOTONLYFIVECENTURIESBUTALSOTHELEAPINTOELECTRONICTYPESETTINGREMAININGESSENTIALLYUNCHANGEDITWASPOPULARISEDINTHESWITHTHERELEASEOFLETRASETSHEETSCONTAININGLOREMIPSUMPASSAGESANDMORERECENTLYWITHDESKTOPPUBLISHINGSOFTWARELIKEALDUSPAGEMAKERINCLUDINGVERSIONSOFLOREMIPSUMITISALONGESTABLISHEDFACTTHATAREADERWILLBEDISTRACTEDBYTHEREADABLECONTENTOFAPAGEWHENLOOKINGATITSLAYOUTTHEPOINTOFUSINGLOREMIPSUMISTHATITHASAMOREORLESSNORMALDISTRIBUTIONOFLETTERSASOPPOSEDTOUSINGCONTENTHERECONTENTHEREMAKINGITLOOKLIKEREADABLEENGLISHMANYDESKTOPPUBLISHINGPACKAGESANDWEBPAGEEDITORSNOWUSELOREMIPSUMASTHEIRDEFAULTMODELTEXTANDASEARCHFORLOREMIPSUMWILLUNCOVERMANYWEBSITESSTILLINTHEIRINFANCYVARIOUSVERSIONSHAVEEVOLVEDOVERTHEYEARSSOMETIMESBYACCIDENTSOMETIMESONPURPOSEINJECTEDHUMOURANDTHELIKE".split('');
 //console.log(N.ioc(test));
+//N.map([10, 12, 33], [14, 115, 26], 'm', - 1);
+
 
 module.exports = N;

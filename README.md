@@ -2,7 +2,7 @@
 
 Takes Futhark and keys to produce clear text.
 
-Calculates IoC and matches words against a dictionary along the way.
+Calculates IoC and matches produced clear text against a dictionary.
 
 Liber can be split by (w)ord, (c)lause, (p)aragraph (s)egment (l)ine or (q)age (page).
 

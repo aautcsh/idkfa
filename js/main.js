@@ -4,6 +4,15 @@
 //
 //	Main
 //
+//	Words:		3623
+//	Clauses:	192
+//	Paragraphs:	35
+//	Segments: 	17
+//	Lines: 		746
+//	Pages: 		71
+
+// Good: 7, 9, 11, 12
+// Semi: 8
 
 var	C = require('./config'),
 	E = require('./lib/engine'),
@@ -31,15 +40,15 @@ else
 	var data = [], keys = [];
 
 	// Load Liber.
-	var data = S.get({s:[0]});
+	var data = S.get({s:[7,9,11,12]});
 
 	// Load OEIS sequences and add them as keys.
 	//var oeis = O.select(0);
 	//if (oeis[1] === -1) console.log('\nAttention: OEIS sequences were filtered. ' + oeis[0].length + ' passed.');
-	//if (oeis[0].length > 0)for (var i = 0; i < oeis[0].length; i ++) K.add(oeis[0][i]);
+	//if (oeis[0].length > 0) for (var i = 0; i < oeis[0].length; i ++) K.add(oeis[0][i]);
 
 	// Add some more keys
-	K.add(N.phi(100));
+	//K.add(N.phi(100));
 
 	// Crunch data.
 	data = E.process(data);

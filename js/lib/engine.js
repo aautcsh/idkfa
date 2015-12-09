@@ -34,6 +34,13 @@ var E =
 			if (C.keys.length > 0) for (var w = 0; w < C.keys.length; w ++ ) K.add(C.keys[w]);
 			else K.add([0]);
 
+			var key01 = N.prime(current.maxchar);
+			var key02 = N.phi(current.maxchar);
+			//var key03 = N.map(key01, N.stream(0, current.maxchar), 's');
+			var key04 = N.weave(key02, key01);
+
+			tkeys[i].push(key04);
+
 			// Pad keys to current chunks maxchar.
 			for (var y = 0; y < K.keys.length; y ++) tkeys[i].push(K.pad(K.keys[y], current.maxchar));
 
