@@ -40,18 +40,17 @@ else
 	var data = [], keys = [];
 
 	// Load Liber.
-	var data = S.get({s:[7,9,0]});
+	var data = S.get({s:[0,15]});
 
 	// Load OEIS sequences and add them as keys.
 	//var oeis = O.select(0);
 	//if (oeis[1] === -1) console.log('\nAttention: OEIS sequences were filtered. ' + oeis[0].length + ' passed.');
 	//if (oeis[0].length > 0) for (var i = 0; i < oeis[0].length; i ++) K.add(oeis[0][i]);
 
-	// Add some more keys
-	//K.add(N.phi(100));
+
 
 	// Crunch data.
-	data = E.process(data);
+	data = E.process(data, 1);
 
 	// Display data and exit.
 	L.toScreen(data);

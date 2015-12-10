@@ -51,6 +51,7 @@ var D =
 
 			var lenj = what[selector[i]].length;
 
+			// If no chunks were specified return all chunks
 			if (lenj === 0) data[selector[i]].chunks = liber[i];
 
 			else if (lenj > 0)
@@ -73,6 +74,7 @@ var D =
 			{
 				data[selector[i]].chunks[k] = data[selector[i]].chunks[k].replace(/\s/g, '').replace(/^-*|-*$/g, '');
 				var strlen = data[selector[i]].chunks[k].replace(/-/g, '').length;
+				//data[selector[i]].chunks[k].len = strlen;
 				if(strlen > data[selector[i]].maxchar) data[selector[i]].maxchar = strlen;
 			}
 		}

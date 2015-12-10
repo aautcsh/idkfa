@@ -33,7 +33,7 @@ var D =
 		raw = _.without(raw.split(/\n/), '');
 
 		// Store word in table.
-		for (var j = 0; j < raw.length; j ++) {this.table[raw[j].trim().toUpperCase()] = true;}
+		for (var i = 0, ii = raw.length; i < ii; i ++) {this.table[raw[i].trim().toUpperCase()] = true;}
 
 		/* too slow
 		if (C.dict.minchar)
@@ -48,10 +48,10 @@ var D =
 		*/
 
 		// Explicitly include words from config.
-		if (C.dict.include.length > 0) for (var i = 0; i < C.dict.include.length; i ++) this.table[C.dict.include[i].toUpperCase()] = true;
+		if (C.dict.include.length > 0) for (var x = 0, xx = C.dict.include.length; x < xx; x ++) this.table[C.dict.include[x].toUpperCase()] = true;
 
 		// Explicitly exclude words from config.
-		if (C.dict.exclude.length > 0) for (var k = 0; k < C.dict.exclude.length; k ++) if (this.table[C.dict.exclude[k].toUpperCase()]) this.table[C.dict.exclude[k].toUpperCase()] = false;
+		if (C.dict.exclude.length > 0) for (var y = 0, yy = C.dict.exclude.length; y < yy; y ++) if (this.table[C.dict.exclude[y].toUpperCase()]) this.table[C.dict.exclude[y].toUpperCase()] = false;
 	}
 };
 
