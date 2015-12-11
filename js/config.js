@@ -34,7 +34,7 @@ var C =
 	{
 		"high": {"value": 1.5},
 		"medium": {"value": 1.3},
-		"low": {"value": 1.1,},
+		"low": {"value": 1.1}
 	},
 
 	"oeis":

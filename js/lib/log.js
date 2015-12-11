@@ -12,8 +12,6 @@ var L =
 {
 	"toScreen": function(data)
 	{
-		//console.dir(data[0]);
-
 		var str = '\n';
 
 		// Loop Selectors
@@ -39,7 +37,7 @@ var L =
 					var ulrioc = (data[i][j][k].ulr.ioc).toString().substring(0, 10);
 					var dlrioc = (data[i][j][k].dlr.ioc).toString().substring(0, 10);
 
-					// Color Ioc
+					// Color IoC
 					ulfioc = (data[i][j][k].ulf.ioc >= C.ioc.low.value && data[i][j][k].ulf.ioc < C.ioc.medium.value) ? K.green(ulfioc) : ulfioc;
 					dlfioc = (data[i][j][k].dlf.ioc >= C.ioc.low.value && data[i][j][k].dlf.ioc < C.ioc.medium.value) ? K.green(dlfioc) : dlfioc;
 					ulrioc = (data[i][j][k].ulr.ioc >= C.ioc.low.value && data[i][j][k].ulr.ioc < C.ioc.medium.value) ? K.green(ulrioc) : ulrioc;

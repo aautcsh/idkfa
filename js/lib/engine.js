@@ -20,10 +20,10 @@ var E =
 	/*
 	*	Funktion: process()
 	*
+	*	Magic happening here
 	*
-	*
-	*	@param: [Array]
-	*	@param: Integer
+	*	@param:
+	*	@param:
 	*	@return:
 	*/
 	"process": function (chunks, iteration)
@@ -54,10 +54,11 @@ var E =
 			//var key06 = N.map(key01, key02, 'm', 0);
 			var key07 = N.weave(key02, key01);
 			//var key08 = N.stream(0, current.maxchar);
+			var key09 = N.map(key01, N.stream(0, current.maxchar), 's', - 1);
 
-			tkeys[i].push(key01);
+			tkeys[i].push(key09);
 
-			console.log(tkeys);
+			//console.log(tkeys);
 
 			// Pad keys to current chunks maxchar.
 			for (var y = 0, yy = K.keys.length; y < yy; y ++) tkeys[i].push(K.pad(K.keys[y], current.maxchar));
@@ -88,7 +89,7 @@ var E =
 					data[i][j][k].ulr.chars = [];
 
 					// Loop through chars
-					for (var l = 0, ll = current.chunks[j].length, m = 0, pt = 0; l < ll; l ++)
+					for (var l = 0, ll = current.chunks[j].length, m = 0; l < ll; l ++)
 					{
 						// Check if char should pass through unchanged.
 						if (C.passthrough[current.chunks[j][l]])
@@ -97,36 +98,16 @@ var E =
 							data[i][j][k].dlr.chars[l] = current.chunks[j][l];
 							data[i][j][k].ulf.chars[l] = current.chunks[j][l];
 							data[i][j][k].ulr.chars[l] = current.chunks[j][l];
-
-							pt ++;
 						}
-
-						/*
-
-							Problem bei mehreren chunks! check it again!
-							--------------------------------------------
-
-						*/
 
 						// Do shifting
 						else
 						{
 							var shift = 0;
 
-							if (iteration > 1)
-							{
-								for (var it = 0; it < iteration; it ++)
-								{
-									shift += tkeys[i][k][it * charlen + m];
-									//console.log(it * charlen + m);
-								}
-
-								//console.log(shift);
-							}
-
+							// Calculate offset if we have an iteration > 1.
+							if (iteration > 1) for (var it = 0; it < iteration; it ++) shift += tkeys[i][k][it * charlen + m];
 							else shift = tkeys[i][k][m];
-
-							//console.log(shift);
 
 							// Shift along a forward Gematria
 							G.reset();
@@ -172,8 +153,7 @@ var E =
 						if ((D.find(wordsdlr[n]))) data[i][j][k].dlr.words.push(wordsdlr[n]);
 					}
 
-					//console.log(data[i][j][k].ulf.words, data[i][j][k].dlf.words, data[i][j][k].ulr.words, data[i][j][k].dlr.words);
-
+					// Word frequency count needs clean up and refactoring.
 					// Count frequencies for: UP l FORWARD.
 					if (data[i][j][k].ulf.words.length > 0)
 					{
@@ -230,8 +210,6 @@ var E =
 				}
 			}
 		}
-
-		//console.log(data[0][0][0]);
 
 		return data;
 	}
