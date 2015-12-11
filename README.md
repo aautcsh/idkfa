@@ -6,6 +6,11 @@ Calculates IoC and matches produced clear text against a dictionary.
 
 Liber can be split by (w)ord, (c)lause, (p)aragraph (s)egment (l)ine or (q)age (page).
 
+#!node
+
+var data = S.get({s:[15, 16]}); // Will get segment 15 and 16
+```
+
 Keys can be added as string ('divinity') or array [2, 3, 5, 7] or can be selected from ./data/oeis by name ('A010000'), index or range/offset. String keys will be added with forword/reverse offsets. Keys are padded/repeated to max-length of current chunk automatically.
 
 Key streams can be mapped against each other with multiple modifiers.
@@ -55,7 +60,7 @@ So
 ```
 #!node
 
-O.select(0, 100)
+O.get(0, 100)
 ```
 
 will most likely not return 100 keys.
