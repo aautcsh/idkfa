@@ -8,7 +8,7 @@ Liber can be split by (w)ord, (c)lause, (p)aragraph (s)egment (l)ine or (q)age (
 
 Keys can be added as string ('divinity') or array [2, 3, 5, 7] or can be selected from ./data/oeis by name ('A010000'), index or range/offset. String keys will be added with forword/reverse offsets. Keys are padded/repeated to max-length of current chunk automatically.
 
-Key streams can be mapped against other streams with multiple modifiers.
+Key streams can be mapped against each other with multiple modifiers.
 
 ```
 #!node
@@ -38,9 +38,17 @@ var key08 = N.stream(0, current.maxchar);							// [0, 0, 0, 0, 0, ..]
 var key09 = N.map(key01, N.stream(0, current.maxchar), 's', - 1);	// [1, 2, 4, 6, 10, 12, ..]
 ```
 
+// To do multiple iterations of chunk with continous key, pass iterations to E.process(data, iterations);
+```
+#!node
+
+data = E.process(data, 1);
+```
+
 Futhark is shifted up/down a forward and reverse Gematria.
 
 Note: Keys from OEIS are sanitized and sanity checked on values given in config.js.
+Note: OEIS file is still unsorted.
 
 So
 
