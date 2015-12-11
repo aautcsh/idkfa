@@ -38,7 +38,7 @@ var key08 = N.stream(0, current.maxchar);							// [0, 0, 0, 0, 0, ..]
 var key09 = N.map(key01, N.stream(0, current.maxchar), 's', - 1);	// [1, 2, 4, 6, 10, 12, ..]
 ```
 
-// To do multiple iterations of chunk with continous key, pass iterations to E.process(data, iterations);
+To do multiple iterations of chunk with continous key, pass iterations to E.process(data, iterations);
 ```
 #!node
 
@@ -63,6 +63,7 @@ will most likely not return 100 keys.
 ### Setup ###
 
 CMDline options are not yet implemented so you will have to edit source and run ./js/main.js.
+
 Edit ./js/main.js for selecting chunks and ./js/lib/engine.js to add keys.
 
 ```
@@ -79,4 +80,5 @@ Pulls welcome. Please use tabs (width 4).
 ### Who do I talk to? ###
 
 bugfixer@freenode
+
 bugfixer@jabber.calyxinstitute.org
