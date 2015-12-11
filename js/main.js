@@ -11,6 +11,7 @@
 //	Lines: 		746
 //	Pages: 		71
 
+// Unsolved: 7,8,9,10,11,12,13,14
 // Good: 7, 9, 11, 12
 // Semi: 8
 
@@ -25,9 +26,9 @@ var	C = require('./config'),
 var	CL	= require('cluster');
 var	CPU	= require('os').cpus().length;
 
-// Fork on multi core.
 if (CL.isMaster)
 {
+	// Fix me!
 	CPU = 1;
 
 	while (CPU --) CL.fork();
@@ -36,23 +37,22 @@ if (CL.isMaster)
 
 else
 {
-	// Container.
-	var data = [], keys = [];
+	// Load chunks from Liber.
+	var data = S.get({c:[0]});
 
-	// Load Liber.
-	var data = S.get({s:[0,15]});
+	// Add a key with no shift.
+	if (!K.keys) K.add([0]);
 
-	// Load OEIS sequences and add them as keys.
-	//var oeis = O.select(0);
-	//if (oeis[1] === -1) console.log('\nAttention: OEIS sequences were filtered. ' + oeis[0].length + ' passed.');
-	//if (oeis[0].length > 0) for (var i = 0; i < oeis[0].length; i ++) K.add(oeis[0][i]);
+	// Add keys from config file.
+	if (C.keys.length > 0) for (var i = 0, ii = C.keys.length; i < ii; i ++ ) K.add(C.keys[i]);
 
+	// Add OEIS entries as keys.
+	//var oeis = O.get(0);
+	//if (oeis[1] === -1) console.log('\nAttention: OEIS results were filtered. ' + oeis[0].length + ' passed.');
+	//if (oeis[0].length > 0) for (var j = 0, jj = oeis[0].length; j < jj; j ++) K.add(oeis[0][j]);
 
-
-	// Crunch data.
+	// Process data with n iterations.
 	data = E.process(data, 1);
 
-	// Display data and exit.
 	L.toScreen(data);
-	//if (L.toScreen(data)) process.exit(0);
 }

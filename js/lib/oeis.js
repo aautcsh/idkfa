@@ -11,18 +11,31 @@ var _ = require('underscore');
 
 var O =
 {
-	"select": function (sequence)
+	/*
+	*	Funktion: get()
+	*
+	*	Will return the specified OEIS entries.
+	*
+	*	Note: Results are sanitized then sanity checked.
+	*	Note: Querries will return less results than expected in most cases.
+	*
+	*	@param: String will select one sequence. 'A007583'
+	*	@param: Array will select multiple specific sequences. ['A264669', 'A264658']
+	*	@param: Range will select multiple sequences. (0, 1000)
+	*	@return: [Array] of sequences. [{'A264669': [0,1,2,3]}, {'A264658': [4,5,6]}]
+	*/
+	"get": function (sequence)
 	{
-		var data = this.load();
+		this.table = this.load();
 		var seq = [], clean = [];
 
-		// Handle array.
+		// Handle param = array.
 		if (_.isArray(sequence)) for (var i = 0; i < sequence.length; i ++) seq.push(this.table[sequence[i]]);
 
-		// Handle String.
+		// Handle param = string.
 		else if (_.isString(sequence)) seq.push(this.table[sequence]);
 
-		// Handle range.
+		// Handle param = range.
 		else if (_.isNumber(Math.floor(arguments[0])) && _.isNumber(Math.floor(arguments[1])))
 		{
 			var keys = Object.keys(this.table);
@@ -38,9 +51,19 @@ var O =
 		for (var k = 0; k < seq.length; k ++) if (seq[k].length > C.oeis.minlength && this.check(seq[k])) clean.push(seq[k]);
 
 		// If sequences were filtered pass along -1 so we can react to it.
-		return (clean.length < seq.length) ? [clean, -1] : clean;
+		return (clean.length < seq.length) ? [clean, -1] : [clean];
 	},
 
+	/*
+	*
+	*	Function: check()
+	*
+	*	Check sequence for sane values
+	*
+	*	Param: [Array] of numbers
+	*	Return: Boolean
+	*
+	*/
 	"check": function (sequence)
 	{
 		for (var i = 0; i < sequence.length; i ++)
@@ -51,7 +74,18 @@ var O =
 		return true;
 	},
 
-	"load": function (config)
+	/*
+	*
+	*	Function: load()
+	*
+	*	Loads all OEIS entries from file, then deletes sequences that would break JSON.parse()
+	*
+	*	Note: Will not return all results from file.
+	*
+	*	Return: [Array] of (almost) all OEIS entries. [{'A000001': [0,1,2,3]}, {'A000002': [4,5,6]}]
+	*
+	*/
+	"load": function ()
 	{
 		if(!this.table) this.table = [];
 
@@ -86,7 +120,7 @@ var O =
 			if (!data[current]) data[current] = raw[j][Object.keys(raw[j])[0]];
 		}
 
-		this.table = data;
+		return data;
 	}
 };
 

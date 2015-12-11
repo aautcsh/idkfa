@@ -24,7 +24,7 @@ var L =
 			// Loop Chunks
 			for (var j = 0; j < data[i].length; j ++)
 			{
-				str += K.bold('Chunk: ') + K.bold(j) + '\n\n';
+				str += K.bold.red('Chunk: ' + K.bold(j)) + '\n\n';
 				str += data[i][j].futhark.substring(0, 111) + '\n';
 				str += '----------------------------------------------------------------------------------------------------------------' + '\n\n';
 

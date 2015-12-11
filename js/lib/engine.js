@@ -17,6 +17,15 @@ var _ = require('underscore');
 
 var E =
 {
+	/*
+	*	Funktion: process()
+	*
+	*
+	*
+	*	@param: [Array]
+	*	@param: Integer
+	*	@return:
+	*/
 	"process": function (chunks, iteration)
 	{
 		var tkeys = [], data = [], current;
@@ -31,7 +40,7 @@ var E =
 			// To shift the same letter n times along a continous key stream we need a longer key stream
 			// E.g. iterate twice: Letter: ABC, Key: 1,2,3,4,5,6. Shift A->1, B->2, C->3, A->4, B->5, C->6
 			// This translates to shift: A->5, B->7, C->9
-			if (!_.isNumber(iteration) || iteration === 0) iteration = 1;
+			if (!_.isNumber(iteration) || iteration < 1) iteration = 1;
 			current.maxchar = current.maxchar * iteration;
 
 
@@ -39,17 +48,19 @@ var E =
 			// Need to move this some place else
 			var key01 = N.prime(current.maxchar);
 			var key02 = N.phi(current.maxchar);
-			var key03 = N.map(key01, N.stream(0, current.maxchar), 'd', - 1);
-			var key04 = N.weave(key02, key01);
+			var key03 = N.map(key01, key02, 's', 0);
+			var key04 = N.map(key01, key02, 'd', 0);
+			var key05 = N.map(key01, key02, 'p', 0);
+			//var key06 = N.map(key01, key02, 'm', 0);
+			var key07 = N.weave(key02, key01);
+			//var key08 = N.stream(0, current.maxchar);
 
-			tkeys[i].push(key03);
+			tkeys[i].push(key01);
 
-			// Add keys from config or [0] to add an iteration with no shift.
-			if (C.keys.length > 0) for (var w = 0, ww = C.keys.length; w < ww; w ++ ) K.add(C.keys[w]);
-			if (!K.keys) K.add([0]);
+			console.log(tkeys);
 
 			// Pad keys to current chunks maxchar.
-			//for (var y = 0, yy = K.keys.length; y < yy; y ++) tkeys[i].push(K.pad(K.keys[y], current.maxchar));
+			for (var y = 0, yy = K.keys.length; y < yy; y ++) tkeys[i].push(K.pad(K.keys[y], current.maxchar));
 
 			//console.log(tkeys);
 

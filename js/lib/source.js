@@ -2,7 +2,8 @@
 'use strict';
 
 //
-//	Data
+//	Source
+//
 //
 
 var C	= require('../config.js');
@@ -11,9 +12,17 @@ var _	= require('underscore');
 
 var D =
 {
-	"get": function (what)
+	/*
+	*	Funktion: get()
+	*
+	*	Will return the specified chunks of Liber.
+	*
+	*	@param: {Object} of selectors. {s:[0,3,12], c:[2], p:[]}. Empty array will select all.
+	*	@return: [Array] of selected chunks as objects. [selector: {chunks: [chunk-1, chunk-n], maxchar: n}]
+	*/
+	"get": function (selectors)
 	{
-		var raw = this.load();
+		var raw = F.readFileSync(C.raw, C.encoding);
 		if (typeof(raw) !== "string" || raw.length < 1)	return;
 
 		var rxWord = new RegExp('[&$\/%\s]', 'g');
@@ -35,11 +44,10 @@ var D =
 		};
 
 		var data = [], liber = [];
-		var selector = Object.keys(what);
-		var leni = selector.length;
+		var selector = Object.keys(selectors);
 
-		// Loop through selectors (w,c,p,s,l,q)
-		for (var i = 0; i < leni; i ++)
+		// Loop through selectors (w, c, p, s, l, q)
+		for (var i = 0, ii = selector.length; i < ii; i ++)
 		{
 			data[selector[i]] = {};
 			data[selector[i]].chunks = [];
@@ -49,7 +57,7 @@ var D =
 			if (getter[selector[i]]) liber[i] = getter[selector[i]]();
 			else continue;
 
-			var lenj = what[selector[i]].length;
+			var lenj = selectors[selector[i]].length;
 
 			// If no chunks were specified return all chunks
 			if (lenj === 0) data[selector[i]].chunks = liber[i];
@@ -59,11 +67,10 @@ var D =
 				// Loop through specified chunks
 				for (var j = 0; j < lenj; j ++)
 				{
-					var chunk = what[selector[i]][j];
+					var chunk = selectors[selector[i]][j];
 
 					if (chunk > liber[i].length) continue;
 					else data[selector[i]].chunks.push((liber[i].slice(chunk, chunk + 1).toString()));
-
 				}
 			}
 
@@ -74,18 +81,12 @@ var D =
 			{
 				data[selector[i]].chunks[k] = data[selector[i]].chunks[k].replace(/\s/g, '').replace(/^-*|-*$/g, '');
 				var strlen = data[selector[i]].chunks[k].replace(/-/g, '').length;
-				//data[selector[i]].chunks[k].len = strlen;
 				if(strlen > data[selector[i]].maxchar) data[selector[i]].maxchar = strlen;
 			}
 		}
 
 		return data;
-	},
-
-	"load": function ()
-	 {
-	 	return F.readFileSync(C.raw, C.encoding);
-	 }
+	}
 };
 
 module.exports = D;
