@@ -6,6 +6,7 @@ Calculates IoC and matches produced clear text against a dictionary.
 
 Liber can be split by (w)ord, (c)lause, (p)aragraph (s)egment (l)ine or (q)age (page).
 
+```
 #!node
 
 var data = S.get({s:[15, 16]}); // Will get segment 15 and 16
