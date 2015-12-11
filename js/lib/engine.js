@@ -52,7 +52,7 @@ var E =
 			var key04 = N.map(key01, key02, 'd', 0);
 			var key05 = N.map(key01, key02, 'p', 0);
 			//var key06 = N.map(key01, key02, 'm', 0);
-			var key07 = N.weave(key02, key01);
+			var key07 = N.weave(key01, key02);
 			//var key08 = N.stream(0, current.maxchar);
 			var key09 = N.map(key01, N.stream(0, current.maxchar), 's', - 1);
 
