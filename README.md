@@ -19,6 +19,12 @@ S.get({c:[2, 3], p:[10, 11]});	// Will get clause 2 and 3, and paragraph 10 and 
 
 Keys can be added as string ('divinity') or array [2, 3, 5, 7] or can be selected from ./data/oeis by name ('A010000'), index or range/offset. String keys will be added with forword/reverse offsets.
 
+```node
+
+K.add('divinity');
+K.add([0, 1, 2, 3, 4, 5]);
+```
+
 Key streams can be mapped against each other with multiple modifiers.
 
 ```node
