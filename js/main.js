@@ -38,7 +38,7 @@ if (CL.isMaster)
 else
 {
 	// Load chunks from Liber.
-	var data = S.get({s:[15]});
+	var data = S.get({s:[0]});
 
 	// Add a key with no shift.
 	if (!K.keys) K.add([0]);

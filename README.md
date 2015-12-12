@@ -41,7 +41,7 @@ var key07 = N.weave(key01, key02);									// [2, 0, 3, 1, 5, ..]
 var key08 = N.stream(0, current.maxchar);							// [0, 0, 0, 0, 0, ..]
 
 // Stream of primes -1
-var key09 = N.map(key01, N.stream(0, current.maxchar), 's', - 1);	// [1, 2, 4, 6, 10, 12, ..]
+var key09 = N.map(key01, N.stream(0, current.maxchar), 's', - 1);	// [1, 2, 4, 6, 10, ..]
 ```
 
 To do multiple iterations of chunk with continous key, pass iterations to E.process(data, iterations);

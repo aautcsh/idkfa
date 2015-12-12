@@ -37,7 +37,7 @@ var E =
 			tkeys[i] = [];
 			current = chunks[Object.keys(chunks)[i]];
 
-			// To shift the same letter n times along a continous key stream we need a longer key stream
+			// Shift same letter n times along a continous key stream.
 			// E.g. iterate twice: Letter: ABC, Key: 1,2,3,4,5,6. Shift A->1, B->2, C->3, A->4, B->5, C->6
 			// This translates to shift: A->5, B->7, C->9
 			if (!_.isNumber(iteration) || iteration < 1) iteration = 1;
