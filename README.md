@@ -11,6 +11,7 @@ Liber can be split by (w)ord, (c)lause, (p)aragraph (s)egment (l)ine or (q)age (
 
 ```node
 
+S.get({s:[]});					// Will get every segment
 S.get({s:[15, 16]});			// Will get segment 15 and 16
 S.get({c:[2, 3], p:[10, 11]});	// Will get clause 2 and 3, and paragraph 10 and 11
 ```
