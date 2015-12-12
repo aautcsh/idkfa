@@ -1,6 +1,6 @@
 {
   "name": "@3301/liber",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Liber Primus Translator",
   "license": "ISC",
   "main": "./js/main.js",

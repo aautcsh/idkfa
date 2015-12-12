@@ -17,8 +17,6 @@ var L =
 		// Loop Selectors
 		for (var i = 0; i < data.length; i ++)
 		{
-			//str += 'Selector: ' + i + '\n\n';
-
 			// Loop Chunks
 			for (var j = 0; j < data[i].length; j ++)
 			{

@@ -10,7 +10,6 @@ Will output: Text shifted up/down from left to right along a forward and reverse
 Liber can be split by (w)ord, (c)lause, (p)aragraph (s)egment (l)ine or (q)age (page).
 
 ```node
-#!node
 
 var data = S.get({s:[15, 16]});				// Will get segment 15 and 16
 var data = S.get({c:[2, 3], p:[10, 11]});	// Will get clause 2 and 3, and paragraph 10 and 11
@@ -23,7 +22,6 @@ Keys can be added as string ('divinity') or array [2, 3, 5, 7] or can be selecte
 Key streams can be mapped against each other with multiple modifiers.
 
 ```node
-#!node
 
 // Stream of primes
 var key01 = N.prime(current.maxchar);								// [2, 3, 5, 7, 11, ..]
@@ -53,7 +51,6 @@ var key09 = N.map(key01, N.stream(0, current.maxchar), 's', - 1);	// [1, 2, 4, 6
 To do multiple iterations of chunk with continous key, pass iterations to E.process(data, iterations);
 
 ```node
-#!node
 
 data = E.process(data, 1);
 ```
@@ -63,9 +60,8 @@ Note: Keys from OEIS are sanitized and sanity checked on values given in config.
 So
 
 ```node
-#!node
 
-O.get(0, 100)
+O.get(0, 100);
 ```
 
 will most likely not return 100 keys.
@@ -74,10 +70,9 @@ will most likely not return 100 keys.
 
 Cmd options are not yet implemented so you will have to edit source and run ./js/main.js.
 
-Edit ./js/main.js for selecting chunks and ./js/lib/engine.js to add keys.
+Edit ./js/main.js for selecting chunks and keys, and ./js/lib/engine.js to play with keys.
 
 ```bash
-#!bash
 
 $ npm update
 $ node ./js/main.js

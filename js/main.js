@@ -11,9 +11,9 @@
 //	Lines: 		746
 //	Pages: 		71
 
-// Unsolved: 7,8,9,10,11,12,13,14
-// Good: 7, 9, 11, 12
-// Semi: 8
+// Unsolved:	7, 8, 9, 10, 11, 12, 13, 14
+// Promising:	7, 9, 11, 12
+// Semi:		8
 
 var	C = require('./config'),
 	E = require('./lib/engine'),
@@ -38,7 +38,7 @@ if (CL.isMaster)
 else
 {
 	// Load chunks from Liber.
-	var data = S.get({s:[0]});
+	var data = S.get({s:[0, 15]});
 
 	// Add a key with no shift.
 	if (!K.keys) K.add([0]);

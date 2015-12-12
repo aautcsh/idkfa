@@ -4,9 +4,11 @@
 //
 //	Engine
 //
-//	Array Keys: U/D = Shift up/down Gematria.
-//	Array Keys: L/R = Text from ltr/rtl.
-//	Array Keys: F/R = Forward/Reverse Gematria.
+//	Array Keys
+//
+//	U/D = Shift up/down Gematria.
+//	L/R = Text from ltr/rtl.
+//	F/R = Forward/Reverse Gematria.
 
 var C = require('../config');
 var D = require('./dict');
