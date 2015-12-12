@@ -11,8 +11,8 @@ Liber can be split by (w)ord, (c)lause, (p)aragraph (s)egment (l)ine or (q)age (
 
 ```node
 
-var data = S.get({s:[15, 16]});				// Will get segment 15 and 16
-var data = S.get({c:[2, 3], p:[10, 11]});	// Will get clause 2 and 3, and paragraph 10 and 11
+S.get({s:[15, 16]});			// Will get segment 15 and 16
+S.get({c:[2, 3], p:[10, 11]});	// Will get clause 2 and 3, and paragraph 10 and 11
 ```
 
 ##### Selecting keys #####
@@ -52,7 +52,7 @@ To do multiple iterations of chunk with continous key, pass iterations to E.proc
 
 ```node
 
-data = E.process(data, 1);
+E.process(data, 1);
 ```
 
 Note: Keys from OEIS are sanitized and sanity checked on values given in config.js. OEIS file is still unsorted.
@@ -61,7 +61,7 @@ So
 
 ```node
 
-O.get(0, 100);
+O.get(0,100);
 ```
 
 will most likely not return 100 keys.

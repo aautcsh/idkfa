@@ -47,7 +47,7 @@ else
 	if (C.keys.length > 0) for (var i = 0, ii = C.keys.length; i < ii; i ++ ) K.add(C.keys[i]);
 
 	// Add OEIS entries as keys.
-	//var oeis = O.get(0);
+	//var oeis = O.get(0,100);
 	//if (oeis[1] === -1) console.log('\nAttention: OEIS results were filtered. ' + oeis[0].length + ' passed.');
 	//if (oeis[0].length > 0) for (var j = 0, jj = oeis[0].length; j < jj; j ++) K.add(oeis[0][j]);
 
