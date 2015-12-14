@@ -13,7 +13,11 @@
 
 // Unsolved:	7, 8, 9, 10, 11, 12, 13, 14
 // Promising:	7, 9, 11, 12
-// Semi:		8
+// Semi:		8, 10
+
+// p 16 +
+// p 20 the... and the...
+// p 26
 
 var	C = require('./config'),
 	E = require('./lib/engine'),
@@ -38,7 +42,7 @@ if (CL.isMaster)
 else
 {
 	// Load chunks from Liber.
-	var data = S.get({s:[0, 15]});
+	var data = S.get({s:[0]});
 
 	// Add a key with no shift.
 	if (!K.keys) K.add([0]);
@@ -47,7 +51,7 @@ else
 	if (C.keys.length > 0) for (var i = 0, ii = C.keys.length; i < ii; i ++ ) K.add(C.keys[i]);
 
 	// Add OEIS entries as keys.
-	//var oeis = O.get(0,100);
+	//var oeis = O.get(101000, 102000);
 	//if (oeis[1] === -1) console.log('\nAttention: OEIS results were filtered. ' + oeis[0].length + ' passed.');
 	//if (oeis[0].length > 0) for (var j = 0, jj = oeis[0].length; j < jj; j ++) K.add(oeis[0][j]);
 

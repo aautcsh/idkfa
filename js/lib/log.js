@@ -51,11 +51,33 @@ var L =
 					ulrioc = (data[i][j][k].ulr.ioc >= C.ioc.high.value) ? K.red(ulrioc) : ulrioc;
 					dlrioc = (data[i][j][k].dlr.ioc >= C.ioc.high.value) ? K.red(dlrioc) : dlrioc;
 
+					// Prepare Text
+					var ulftxt = data[i][j][k].ulf.chars.join('').replace(/[-]/g, '  ').substring(0, 88);
+					var dlftxt = data[i][j][k].dlf.chars.join('').replace(/[-]/g, '  ').substring(0, 88);
+					var ulrtxt = data[i][j][k].ulr.chars.join('').replace(/[-]/g, '  ').substring(0, 88);
+					var dlrtxt = data[i][j][k].dlr.chars.join('').replace(/[-]/g, '  ').substring(0, 88);
+
+					// Color Text
+					ulftxt = (data[i][j][k].ulf.ioc >= C.ioc.low.value && data[i][j][k].ulf.ioc < C.ioc.medium.value) ? K.green(ulftxt) : ulftxt;
+					dlftxt = (data[i][j][k].dlf.ioc >= C.ioc.low.value && data[i][j][k].dlf.ioc < C.ioc.medium.value) ? K.green(dlftxt) : dlftxt;
+					ulrtxt = (data[i][j][k].ulr.ioc >= C.ioc.low.value && data[i][j][k].ulr.ioc < C.ioc.medium.value) ? K.green(ulrtxt) : ulrtxt;
+					dlrtxt = (data[i][j][k].dlr.ioc >= C.ioc.low.value && data[i][j][k].dlr.ioc < C.ioc.medium.value) ? K.green(dlrtxt) : dlrtxt;
+
+					ulftxt = (data[i][j][k].ulf.ioc >= C.ioc.medium.value && data[i][j][k].ulf.ioc < C.ioc.high.value) ? K.yellow(ulftxt) : ulftxt;
+					dlftxt = (data[i][j][k].dlf.ioc >= C.ioc.medium.value && data[i][j][k].dlf.ioc < C.ioc.high.value) ? K.yellow(dlftxt) : dlftxt;
+					ulrtxt = (data[i][j][k].ulr.ioc >= C.ioc.medium.value && data[i][j][k].ulr.ioc < C.ioc.high.value) ? K.yellow(ulrtxt) : ulrtxt;
+					dlrtxt = (data[i][j][k].dlr.ioc >= C.ioc.medium.value && data[i][j][k].dlr.ioc < C.ioc.high.value) ? K.yellow(dlrtxt) : dlrtxt;
+
+					ulftxt = (data[i][j][k].ulf.ioc >= C.ioc.high.value) ? K.red(ulftxt) : ulftxt;
+					dlftxt = (data[i][j][k].dlf.ioc >= C.ioc.high.value) ? K.red(dlftxt) : dlftxt;
+					ulrtxt = (data[i][j][k].ulr.ioc >= C.ioc.high.value) ? K.red(ulrtxt) : ulrtxt;
+					dlrtxt = (data[i][j][k].dlr.ioc >= C.ioc.high.value) ? K.red(dlrtxt) : dlrtxt;
+
 					// Glue together string
-					str += 'ULF:\t' + ulfioc + '\t' + data[i][j][k].ulf.chars.join('').replace(/[-]/g, '  ').substring(0, 88) + '\n';
-					str += 'DLF:\t' + dlfioc + '\t' + data[i][j][k].dlf.chars.join('').replace(/[-]/g, '  ').substring(0, 88) + '\n';
-					str += 'ULR:\t' + ulrioc + '\t' + data[i][j][k].ulr.chars.join('').replace(/[-]/g, '  ').substring(0, 88) + '\n';
-					str += 'DLR:\t' + dlrioc + '\t' + data[i][j][k].dlr.chars.join('').replace(/[-]/g, '  ').substring(0, 88) + '\n';
+					str += 'ULF:\t' + ulfioc + '\t' + ulftxt + '\n';
+					str += 'DLF:\t' + dlfioc + '\t' + dlftxt + '\n';
+					str += 'ULR:\t' + ulrioc + '\t' + ulrtxt + '\n';
+					str += 'DLR:\t' + dlrioc + '\t' + dlrtxt + '\n';
 					str += '\n';
 
 					// Glue matched words to the end

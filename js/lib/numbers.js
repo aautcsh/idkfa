@@ -33,6 +33,13 @@ var N =
 		return p;
 	},
 
+	"fib": function (length)
+	{
+		var f = [0, 1];
+		for (var i = f.length; i < length; i ++) f[i] = f[i - 2] + f[i - 1];
+		return f;
+	},
+
 	"stream": function(char, length)
 	{
 		var s = [];
