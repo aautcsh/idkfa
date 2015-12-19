@@ -18,11 +18,11 @@ S.get({c:[2, 3], p:[10, 11]});	// Will get clause 2 and 3, and paragraph 10 and 
 
 ##### Selecting keys #####
 
-Keys can be added as string ('divinity') or array [2, 3, 5, 7] or can be selected from ./data/oeis by name ('A010000'), index or range/offset. String keys will be added with forword/reverse offsets.
+Keys can be added as string ('divinity') or array [2, 3, 5, 7] or can be selected from ./data/oeis by name ('A010000'), index or range/offset. Keys will be added with forword or reverse offsets depending on param direction.
 
 ```node
 
-K.add('divinity');
+K.add('divinity', 1);
 K.add([0, 1, 2, 3, 4, 5]);
 ```
 
@@ -59,7 +59,7 @@ To do multiple iterations of chunk with continous key, pass iterations to E.proc
 
 ```node
 
-E.process(data, 1);
+E.process(data, 2);
 ```
 
 Note: Keys from OEIS are sanitized and sanity checked on values given in config.js. OEIS file is still unsorted.
