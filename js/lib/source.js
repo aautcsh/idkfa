@@ -67,10 +67,10 @@ var D =
 				// Loop through specified chunks
 				for (var j = 0; j < lenj; j ++)
 				{
-					var chunk = selectors[selector[i]][j];
+					var offset = selectors[selector[i]][j];
 
-					if (chunk > liber[i].length) continue;
-					else data[selector[i]].chunks.push((liber[i].slice(chunk, chunk + 1).toString()));
+					if (offset > liber[i].length) continue;
+					else data[selector[i]].chunks.push((liber[i].slice(offset, offset + 1).toString()));
 				}
 			}
 

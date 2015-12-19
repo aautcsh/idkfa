@@ -45,33 +45,8 @@ var E =
 			if (!_.isNumber(iteration) || iteration < 1) iteration = 1;
 			current.maxchar = current.maxchar * iteration;
 
-
-			// Build some test keys
-			// Need to move this some place else
-			var key00 = N.pi(current.maxchar);
-			var key01 = N.prime(current.maxchar);
-			var key02 = N.phi(current.maxchar);
-			var key03 = N.map(key01, key02, 's', 0);
-			var key04 = N.map(key01, key02, 'd', 0);
-			var key05 = N.map(key01, key02, 'p', 0);
-			var key06 = N.fib(30);
-			var key07 = N.weave(key02, key01);
-			//var key08 = N.stream(0, current.maxchar);
-			var key09 = N.map(key01, N.stream(0, current.maxchar), 's', - 1);
-			var key10 = N.map(key02, N.stream(0, current.maxchar), 'd', + 1);
-
-			tkeys[i].push(key09);
-
-			//K.add([]);
-
-			//console.log(tkeys);
-
 			// Pad keys to current chunks maxchar.
 			for (var y = 0, yy = K.keys.length; y < yy; y ++) tkeys[i].push(K.pad(K.keys[y], current.maxchar));
-
-			//console.log(tkeys);
-
-			//console.log(K.keys);
 
 			// Loop through chunks
 			for (var j = 0, jj = current.chunks.length; j < jj; j ++)
@@ -82,6 +57,8 @@ var E =
 				data[i][j].futhark = current.chunks[j].toString();
 
 				var charlen = data[i][j].futhark.replace(/[-\s]/g, '').length;
+
+				//console.log(charlen);
 
 				// Loop through keys
 				for (var k = 0, kk = tkeys[i].length; k < kk; k ++)
