@@ -36,9 +36,9 @@ var K =
 	},
 
 	/*
-	*	Add array to keys array.
+	*	Add array to keys.
 	*
-	*	If array is a list of integers add it to keys array.
+	*	If array is a list of integers add it to keys.
 	*
 	*	@param	{array}				key			[0-9]
 	*	@param	{boolean}			direction	0 = forward Gematria, 1 = reverse Gematria. Default: 0
@@ -46,20 +46,22 @@ var K =
 	*/
 	"addArray": function (key, direction)
 	{
-		// Check if array contains only numbers.
+		// Do some sanity checks and sanitation.
 		_.each(key, function (item, el)
 		{
 			if (!_.isNumber(item)) key[el] = 0;
 			else key[el] = Math.floor(item);
 		});
 
-		// Reverse offsets if needed.
+		// Reverse offsets if specified.
 		if (direction === 1) key = this.reverse(key);
 
 		this.keys.push(key);
 	},
 
 	/*
+	*	Add string to keys.
+	*
 	*	Turn string into array of Gematria offsets and add it to the keys array.
 	*	First Pick up Tri-Graphs (ING). Then Bi-Graphs (TH/EO/NG/OE/AE/IA/IO/EA). Then single chars.
 	*
@@ -97,14 +99,14 @@ var K =
 		// Remove empty elements.
 		key = _.without(tmp, undefined);
 
-		// Reverse offsets if needed.
+		// Reverse offsets if specified.
 		if (direction === 1) key = this.reverse(key);
 
 		this.keys.push(key);
 	},
 
 	/*
-	*	Blank chars that have been picked up so they don't get picked up twice.
+	*	Blank chars that have been matched so they don't get picked up again.
 	*
 	*	@param	{string}			string		[a-zA-Z]
 	*	@param	{integer}			start		First letter to blank. Default: 0
@@ -126,10 +128,14 @@ var K =
 	},
 
 	/*
-	*	Pad key to length.
+	*	Pads key to given length.
 	*
+	*	Will pad with (char) if char is passed, otherwise key will be repeated.
 	*
-	*	@return {array}
+	*	@param	{array}				key 		[0-9]
+	*	@param	{integer}			char		[0-9a-zA-Z] Default: undefined
+	*	@param	{integer}			length		[0-9]
+	*	@return	{array}
 	*/
 	"pad": function (key, char, length)
 	{
@@ -149,24 +155,70 @@ var K =
 	},
 
 	/*
-	*	Reverse offsets.
-	*
+	*	Reverse offsets of key.
 	*
 	*	@return {array}
 	*/
 	"reverse": function (key)
 	{
-
 		var maxoffset = 30;
 
 		_.each(key, function (item, el)
 		{
 			if (key[el] === 0) key[el] = 0;
 			else key[el] = maxoffset - key[el];
-
 		});
 
 		return key;
+	},
+
+	/*
+	*	Shift key by offset.
+	*
+	*	@return {array}
+	*/
+	"rotate": function (key, offset)
+	{
+		offset = offset % key.length;
+
+		if (offset < 0) {offset = - offset; while (offset --) key.unshift(key.pop());}
+		else while (offset --) key.push(key.shift());
+
+		return key;
+	},
+
+	/*
+	*	Cribs.
+	*
+	*	Replace values in key with fixed values.
+	*
+	*	@return {array}
+	*/
+	"crib": function (key, crib, offset)
+	{
+		offset = offset % key.length;
+
+		var ckey = [];
+
+		if (offset > key.length - crib.length)
+		{
+			var cpre = crib.slice(key.length - offset);
+			var cpost = crib.slice(0, key.length - offset);
+
+			key = key.slice(cpre.length, key.length - cpost.length);
+
+			ckey = cpre.concat(key.concat(cpost));
+		}
+
+		else
+		{
+			var pre = key.slice(0, offset);
+			var post = key.slice(offset + crib.length);
+
+			ckey = pre.concat(crib.concat(post));
+		}
+
+		return ckey;
 	}
 };
 

@@ -22,11 +22,12 @@ var E =
 	/*
 	*	Funktion: process()
 	*
-	*	Magic happening here
+	*	Iterate through selectors, chunks, keys, chars.
+	*	Shift chars by keys and return their latin representation.
 	*
-	*	@param:
-	*	@param:
-	*	@return:
+	*	@param	{array}
+	*	@param	{integer}
+	*	@return	{array}
 	*/
 	"process": function (chunks, iteration)
 	{
@@ -39,9 +40,7 @@ var E =
 			tkeys[i] = [];
 			current = chunks[Object.keys(chunks)[i]];
 
-			// Shift same letter n times along a continous key stream.
-			// E.g. iterate twice: Letter: ABC, Key: 1,2,3,4,5,6. Shift A->1, B->2, C->3, A->4, B->5, C->6
-			// This translates to shift: A->5, B->7, C->9
+			// Adjust keylength
 			if (!_.isNumber(iteration) || iteration < 1) iteration = 1;
 			current.maxchar = current.maxchar * iteration;
 
@@ -56,9 +55,11 @@ var E =
 				// Pass the Futhork string through unchanged so we can display it later on.
 				data[i][j].futhark = current.chunks[j].toString();
 
+				//console.log(data[i][j].futhark);
+
 				var charlen = data[i][j].futhark.replace(/[-\s]/g, '').length;
 
-				//console.log(charlen);
+				console.log(data[i][j].futhark);
 
 				// Loop through keys
 				for (var k = 0, kk = tkeys[i].length; k < kk; k ++)

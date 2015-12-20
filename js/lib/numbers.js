@@ -76,13 +76,6 @@ var N =
 				return p;
 			},
 
-			"q": function (a, b, mod)
-			{
-				var q = [];
-				for (var i = 0, ii = a.length; i < ii; i ++) q.push((((a[i] === 0) ? 1 : a[i]) / b[i]) + mod);
-				return q;
-			},
-
 			"m": function (a, b, mod)
 			{
 				var m = [];
