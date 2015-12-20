@@ -11,10 +11,13 @@
     "chalk": "^1.1.1",
     "fs": "0.0.2",
     "mathjs": "^2.5.0",
-    "minimist": "^1.2.0",
     "number-theory": "^1.0.0",
     "pi-number": "^1.0.0",
     "underscore": "^1.8.3"
   },
-  "private": true
+  "private": true,
+  "keywords": [
+    "CodedWithSlayer™",
+    "AtMaxVolume™"
+  ]
 }

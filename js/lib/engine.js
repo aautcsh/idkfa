@@ -58,10 +58,10 @@ var E =
 				// <!-- -->
 
 				var wordcount = data[i][j].futhark.replace(/[\s]/g, '').split('-').length;
-				var charlen = data[i][j].futhark.replace(/[-\s]/g, '').length;
+				var charcount = data[i][j].futhark.replace(/[-\s]/g, '').length;
 
 				data[i][j].wordcount = wordcount;
-				data[i][j].charcount = charlen;
+				data[i][j].charcount = charcount;
 
 				// <!-- -->
 
@@ -97,7 +97,7 @@ var E =
 							var shift = 0;
 
 							// Calculate offset if we have an iteration > 1.
-							if (iteration > 1) for (var it = 0; it < iteration; it ++) shift += tkeys[i][k][it * charlen + m];
+							if (iteration > 1) for (var it = 0; it < iteration; it ++) shift += tkeys[i][k][it * charcount + m];
 							else shift = tkeys[i][k][m];
 
 							// Shift along a forward Gematria
