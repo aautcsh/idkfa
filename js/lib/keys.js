@@ -157,6 +157,7 @@ var K =
 	/*
 	*	Reverse offsets of key.
 	*
+	*	@param	{array}		key
 	*	@return {array}
 	*/
 	"reverse": function (key)
@@ -175,6 +176,8 @@ var K =
 	/*
 	*	Shift key by offset.
 	*
+	*	@param	{array}		key
+	*	@param	{integer}	offset
 	*	@return {array}
 	*/
 	"rotate": function (key, offset)
@@ -192,6 +195,9 @@ var K =
 	*
 	*	Replace values in key with fixed values.
 	*
+	*	@param	{array}		key
+	*	@param	{array}		crib
+	*	@param	{integer}	offset
 	*	@return {array}
 	*/
 	"crib": function (key, crib, offset)

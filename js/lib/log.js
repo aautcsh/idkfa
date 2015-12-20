@@ -20,14 +20,17 @@ var L =
 			// Loop Chunks
 			for (var j = 0; j < data[i].length; j ++)
 			{
-				str += K.bold.red('Chunk: ' + K.bold(j)) + '\n\n';
+				str += K.bold.blue('Chunk: ' + j) + '\n\n';
+				str += 'Words: ' + data[i][j].wordcount + ' // Chars: ' + data[i][j].charcount + '\n';
+				str += 'Frequencies: ' + '' + '\n';
+				str += 'Doubles: ' + '' + '\n\n';
 				str += data[i][j].futhark.substring(0, 111) + '\n';
 				str += '----------------------------------------------------------------------------------------------------------------' + '\n\n';
 
 				// Display chunk data.
 				for (var k = 0; k < data[i][j].length; k ++)
 				{
-					str += K.bold('Key: ' + k) + '\n\n';
+					str += K.bold('Key:\t') + data[i][j][k].key.substring(0, 104) + '\n\n';
 
 					// Prepare IoC
 					var ulfioc = (data[i][j][k].ulf.ioc).toString().substring(0, 10);
@@ -83,31 +86,43 @@ var L =
 					// Glue matched words to the end
 					str += 'ULF:\t';
 
+					var tmp1 = '';
 					for(var ii = 0; ii < Object.keys(data[i][j][k].ulf.frequency).length; ii ++)
 					{
-						str += K.blue(Object.keys(data[i][j][k].ulf.frequency)[ii]) + ' ';
+						tmp1 += Object.keys(data[i][j][k].ulf.frequency)[ii] + ' ';
 					}
+
+					str += K.blue(tmp1.substring(0, 104));
 
 					str += '\n' + 'DLF:\t';
 
+					var tmp2 = '';
 					for(var jj = 0; jj < Object.keys(data[i][j][k].dlf.frequency).length; jj ++)
 					{
-						str += K.blue(Object.keys(data[i][j][k].dlf.frequency)[jj]) + ' ';
+						tmp2 += K.blue(Object.keys(data[i][j][k].dlf.frequency)[jj]) + ' ';
 					}
+
+					str += K.blue(tmp2.substring(0, 104));
 
 					str += '\n' + 'ULR:\t';
 
+					var tmp3 = '';
 					for(var kk = 0; kk < Object.keys(data[i][j][k].ulr.frequency).length; kk ++)
 					{
-						str += K.blue(Object.keys(data[i][j][k].ulr.frequency)[kk]) + ' ';
+						tmp3 += K.blue(Object.keys(data[i][j][k].ulr.frequency)[kk]) + ' ';
 					}
+
+					str += K.blue(tmp3.substring(0, 104));
 
 					str += '\n' + 'DLR:\t';
 
+					var tmp4 = '';
 					for(var ll = 0; ll < Object.keys(data[i][j][k].dlr.frequency).length; ll ++)
 					{
-						str += K.blue(Object.keys(data[i][j][k].dlr.frequency)[ll]) + ' ';
+						tmp2 += K.blue(Object.keys(data[i][j][k].dlr.frequency)[ll]) + ' ';
 					}
+
+					str += K.blue(tmp4.substring(0, 104));
 
 					str += '\n\n';
 

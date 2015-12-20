@@ -55,11 +55,15 @@ var E =
 				// Pass the Futhork string through unchanged so we can display it later on.
 				data[i][j].futhark = current.chunks[j].toString();
 
-				//console.log(data[i][j].futhark);
+				// <!-- -->
 
+				var wordcount = data[i][j].futhark.replace(/[\s]/g, '').split('-').length;
 				var charlen = data[i][j].futhark.replace(/[-\s]/g, '').length;
 
-				console.log(data[i][j].futhark);
+				data[i][j].wordcount = wordcount;
+				data[i][j].charcount = charlen;
+
+				// <!-- -->
 
 				// Loop through keys
 				for (var k = 0, kk = tkeys[i].length; k < kk; k ++)
@@ -73,6 +77,7 @@ var E =
 					data[i][j][k].dlr.chars = [];
 					data[i][j][k].ulf.chars = [];
 					data[i][j][k].ulr.chars = [];
+					data[i][j][k].key = tkeys[i][k].toString();
 
 					// Loop through chars
 					for (var l = 0, ll = current.chunks[j].length, m = 0; l < ll; l ++)

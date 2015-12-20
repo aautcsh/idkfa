@@ -42,13 +42,13 @@ if (CL.isMaster)
 else
 {
 	// Load chunks from Liber.
-	var data = S.get({s:[0]});
+	var data = S.get({s:[1]});
 
 	// Add a key with no shift.
 	if (!K.keys) K.add([0]);
 
 	// Add keys from config file.
-	if (C.keys.length > 0) for (var i = 0, ii = C.keys.length; i < ii; i ++ ) K.add(C.keys[i]);
+	if (C.keys.length > 0) for (var i = 0, ii = C.keys.length; i < ii; i ++ ) K.add(C.keys[i], 1);
 
 	// Add OEIS entries as keys.
 	//var oeis = O.get(101000, 102000);
