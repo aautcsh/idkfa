@@ -62,6 +62,7 @@ var E =
 
 				data[i][j].wordcount = wordcount;
 				data[i][j].charcount = charcount;
+				data[i][j].frequencies = N.frequency(_.without(current.chunks[j], '-'));
 
 				// <!-- -->
 

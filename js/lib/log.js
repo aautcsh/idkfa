@@ -7,6 +7,7 @@
 
 var C	= require('../config');
 var K	= require('chalk');
+var _	= require('underscore');
 
 var L =
 {
@@ -20,10 +21,24 @@ var L =
 			// Loop Chunks
 			for (var j = 0; j < data[i].length; j ++)
 			{
+				var frequencies = data[i][j].frequencies;
+
+				var sorted = [];
+				for (var foo in frequencies) sorted.push([foo, frequencies[foo]]);
+				sorted.sort(function(a, b) {return a[1] - b[1];}).reverse();
+
+				var foofreq = '';
+				for (var z = 0, zz = sorted.length; z < zz; z ++)
+				{
+					foofreq += sorted[z][0] + ':' + sorted[z][1] + '  ';
+				}
+
+				foofreq = foofreq.substring(0, 95) + '\n' + foofreq.substring(95);
+
 				str += K.bold.red('Chunk: ' + j) + '\n\n';
-				str += 'Words: ' + data[i][j].wordcount + ' // Chars: ' + data[i][j].charcount + '\n';
-				str += 'Frequencies: ' + '' + '\n';
-				str += 'Doubles: ' + '' + '\n\n';
+				str += 'Words: ' + data[i][j].wordcount + ' // Chars: ' + data[i][j].charcount + '\n\n';
+				str += 'Frequencies: ' + foofreq + '\n\n';
+				//str += 'Doubles: ' + '' + '\n\n';
 				str += data[i][j].futhark.substring(0, 111) + '\n';
 				str += '----------------------------------------------------------------------------------------------------------------' + '\n\n';
 

@@ -94,24 +94,29 @@ var N =
 		return w;
 	},
 
+	"frequency": function (chars)
+	{
+		var frequency = {};
+
+		for (var i = 0, ii = chars.length; i < ii; i ++)
+		{
+			var char = chars[i].toUpperCase();
+			frequency[char] = frequency[char] ? frequency[char] + 1 : 1;
+		}
+
+		return frequency;
+	},
+
 	"ioc": function (data)
 	{
 		// Clone data so original gets passed on unchanged.
 		var clone = data.slice(0);
 
-		// Filter out word delimiter.
+		// Filter word delimiter.
 		clone = _.without(clone, '-');
 
-		var allchars = clone.length;
-		var frequency = {};
-		var foo, char;
-
-		// Count char frequency.
-		for (var i = 0; i < allchars; i ++)
-		{
-			char = clone[i].toUpperCase();
-			frequency[char] = frequency[char] ? frequency[char] + 1 : 1;
-		}
+		var charlen = clone.length;
+		var frequency = this.frequency(clone);
 
 		// Calculate denominator.
 		_.each(frequency, function (a, b, c) {c[b] = c[b] * (c[b] - 1);});
@@ -120,7 +125,7 @@ var N =
 		for (var k = 0; k < baz.length; k ++) sum += baz[k];
 
 		// Calculate and return Ioc.
-		return sum / (allchars * (allchars - 1) / 29);
+		return sum / (charlen * (charlen - 1) / 29);
 	}
 };
 
