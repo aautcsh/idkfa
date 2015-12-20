@@ -42,10 +42,15 @@ if (CL.isMaster)
 else
 {
 	// Load chunks from Liber.
-	var data = S.get({s:[1]});
+	var data = S.get({s:[0, 1, 2, 3, 4, 5, 6, 15, 16]});
 
 	// Add a key with no shift.
 	if (!K.keys) K.add([0]);
+
+	K.add('divinity', 1);
+	K.add([3]);
+	K.add('firfumferenfe', 1);
+
 
 	// Add keys from config file.
 	if (C.keys.length > 0) for (var i = 0, ii = C.keys.length; i < ii; i ++ ) K.add(C.keys[i], 1);

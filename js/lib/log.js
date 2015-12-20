@@ -20,7 +20,7 @@ var L =
 			// Loop Chunks
 			for (var j = 0; j < data[i].length; j ++)
 			{
-				str += K.bold.blue('Chunk: ' + j) + '\n\n';
+				str += K.bold.red('Chunk: ' + j) + '\n\n';
 				str += 'Words: ' + data[i][j].wordcount + ' // Chars: ' + data[i][j].charcount + '\n';
 				str += 'Frequencies: ' + '' + '\n';
 				str += 'Doubles: ' + '' + '\n\n';
@@ -99,7 +99,7 @@ var L =
 					var tmp2 = '';
 					for(var jj = 0; jj < Object.keys(data[i][j][k].dlf.frequency).length; jj ++)
 					{
-						tmp2 += K.blue(Object.keys(data[i][j][k].dlf.frequency)[jj]) + ' ';
+						tmp2 += Object.keys(data[i][j][k].dlf.frequency)[jj] + ' ';
 					}
 
 					str += K.blue(tmp2.substring(0, 104));
@@ -109,7 +109,7 @@ var L =
 					var tmp3 = '';
 					for(var kk = 0; kk < Object.keys(data[i][j][k].ulr.frequency).length; kk ++)
 					{
-						tmp3 += K.blue(Object.keys(data[i][j][k].ulr.frequency)[kk]) + ' ';
+						tmp3 += Object.keys(data[i][j][k].ulr.frequency)[kk] + ' ';
 					}
 
 					str += K.blue(tmp3.substring(0, 104));
@@ -119,7 +119,7 @@ var L =
 					var tmp4 = '';
 					for(var ll = 0; ll < Object.keys(data[i][j][k].dlr.frequency).length; ll ++)
 					{
-						tmp2 += K.blue(Object.keys(data[i][j][k].dlr.frequency)[ll]) + ' ';
+						tmp4 += Object.keys(data[i][j][k].dlr.frequency)[ll] + ' ';
 					}
 
 					str += K.blue(tmp4.substring(0, 104));
