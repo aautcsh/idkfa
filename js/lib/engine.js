@@ -40,34 +40,60 @@ var E =
 			tkeys[i] = [];
 			current = chunks[Object.keys(chunks)[i]];
 
-			// Adjust keylength
-			if (!_.isNumber(iteration) || iteration < 1) iteration = 1;
-			current.maxchar = current.maxchar * iteration;
-
-			// Pad keys to current chunks maxchar.
-			for (var y = 0, yy = K.keys.length; y < yy; y ++) tkeys[i].push(K.pad(K.keys[y], current.maxchar));
-
 			// Loop through chunks
 			for (var j = 0, jj = current.chunks.length; j < jj; j ++)
 			{
+				// Will contain everything that gets echo'd later on.
 				data[i][j] = [];
 
-				// Pass the Futhork string through unchanged so we can display it later on.
-				data[i][j].futhark = current.chunks[j].toString();
+				// Will contail our (padded) keys.
+				tkeys[i][j] = [];
 
 				// <!-- -->
+
+				// Add Futhark string to output.
+				data[i][j].futhark = current.chunks[j].toString();
 
 				var wordcount = data[i][j].futhark.replace(/[\s]/g, '').split('-').length;
 				var charcount = data[i][j].futhark.replace(/[-\s]/g, '').length;
 
+				// Add word/char count and char frequency to output.
 				data[i][j].wordcount = wordcount;
 				data[i][j].charcount = charcount;
 				data[i][j].frequencies = N.frequency(_.without(current.chunks[j], '-'));
 
+				// Adjust keylength to account for iterations
+				if (!_.isNumber(iteration) || iteration < 1) iteration = 1;
+				var keylen = charcount * iteration;
+
+				// Add iteration to output.
+				data[i][j].iteration = iteration;
+
+				// Pad keys from K.keys to chunks length and add them to tkeys.
+				if (K.keys.length > 0) for (var y = 0, yy = K.keys.length; y < yy; y ++ ) tkeys[i][j].push(K.pad(K.keys[y].slice(0), keylen));
+
+
+				var key00 = N.integer(keylen);
+				var key01 = N.prime(keylen);
+				var key02 = N.stream(0, keylen);
+				var key03 = N.map(key01, key02, 's', -1);
+
+				tkeys[i][j].push(K.pad(key03.slice(0), keylen));
+
+				// Rotate key full circle.
+				for (var z = 0; z < keylen; z ++)
+				{
+					// Damn you JS!
+					//var clone = key00.slice(0);
+					//tkeys[i][j].push(K.rotate(clone, z));
+				}
+
+				//console.log(tkeys[i][j]);
+
 				// <!-- -->
 
 				// Loop through keys
-				for (var k = 0, kk = tkeys[i].length; k < kk; k ++)
+				for (var k = 0, kk = tkeys[i][j].length; k < kk; k ++)
 				{
 					data[i][j][k] = [];
 					data[i][j][k].dlf = [];
@@ -78,10 +104,10 @@ var E =
 					data[i][j][k].dlr.chars = [];
 					data[i][j][k].ulf.chars = [];
 					data[i][j][k].ulr.chars = [];
-					data[i][j][k].key = tkeys[i][k].toString();
+					data[i][j][k].key = tkeys[i][j][k].toString();
 
-					// Loop through chars
-					for (var l = 0, ll = current.chunks[j].length, m = 0; l < ll; l ++)
+					// Loop through chars. m holds position in key.
+					for (var l = 0, m = 0, ll = current.chunks[j].length; l < ll; l ++)
 					{
 						// Check if char should pass through unchanged.
 						if (C.passthrough[current.chunks[j][l]])
@@ -97,9 +123,9 @@ var E =
 						{
 							var shift = 0;
 
-							// Calculate offset if we have an iteration > 1.
-							if (iteration > 1) for (var it = 0; it < iteration; it ++) shift += tkeys[i][k][it * charcount + m];
-							else shift = tkeys[i][k][m];
+							// Calculate offset to account for iteration.
+							if (iteration > 1) for (var it = 0; it < iteration; it ++) shift += tkeys[i][j][k][(m + (charcount * it))];
+							else shift = tkeys[i][j][k][m];
 
 							// Shift along a forward Gematria
 							G.reset();

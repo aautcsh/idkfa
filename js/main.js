@@ -53,7 +53,7 @@ else
 
 
 	// Add keys from config file.
-	if (C.keys.length > 0) for (var i = 0, ii = C.keys.length; i < ii; i ++ ) K.add(C.keys[i], 1);
+	//if (C.keys.length > 0) for (var i = 0, ii = C.keys.length; i < ii; i ++ ) K.add(C.keys[i], 1);
 
 	// Add OEIS entries as keys.
 	//var oeis = O.get(101000, 102000);

@@ -47,6 +47,13 @@ var N =
 		return s;
 	},
 
+	"integer": function(length)
+	{
+		var n = [];
+		for (var i = 0; i < length; i ++) n.push(i);
+		return n;
+	},
+
 	"map": function (a, b, op, mod)
 	{
 		if (a.length !== b.length) return;

@@ -36,16 +36,16 @@ var L =
 				foofreq = foofreq.substring(0, 95) + '\n' + foofreq.substring(95);
 
 				str += K.bold.red('Chunk: ' + j) + '\n\n';
-				str += 'Words: ' + data[i][j].wordcount + ' // Chars: ' + data[i][j].charcount + '\n\n';
-				str += 'Frequencies: ' + foofreq + '\n\n';
+				str += 'Words: ' + data[i][j].wordcount + ' // Chars: ' + data[i][j].charcount + ' // Iterations: ' +  data[i][j].iteration + '\n\n';
+				//str += 'Frequencies: ' + foofreq + '\n\n';
 				//str += 'Doubles: ' + '' + '\n\n';
-				str += data[i][j].futhark.substring(0, 111) + '\n';
-				str += '----------------------------------------------------------------------------------------------------------------' + '\n\n';
+				str += data[i][j].futhark.substring(0, 120) + '\n';
+				str += '---------------------------------------------------------------------------------------------------------------------------' + '\n\n';
 
 				// Display chunk data.
 				for (var k = 0; k < data[i][j].length; k ++)
 				{
-					str += K.bold('Key:\t') + data[i][j][k].key.substring(0, 104) + '\n\n';
+					str += K.bold('Key:\t') + data[i][j][k].key.substring(0, 115) + '\n\n';
 
 					// Prepare IoC
 					var ulfioc = (data[i][j][k].ulf.ioc).toString().substring(0, 10);
@@ -70,10 +70,10 @@ var L =
 					dlrioc = (data[i][j][k].dlr.ioc >= C.ioc.high.value) ? K.red(dlrioc) : dlrioc;
 
 					// Prepare Text
-					var ulftxt = data[i][j][k].ulf.chars.join('').replace(/[-]/g, '  ').substring(0, 88);
-					var dlftxt = data[i][j][k].dlf.chars.join('').replace(/[-]/g, '  ').substring(0, 88);
-					var ulrtxt = data[i][j][k].ulr.chars.join('').replace(/[-]/g, '  ').substring(0, 88);
-					var dlrtxt = data[i][j][k].dlr.chars.join('').replace(/[-]/g, '  ').substring(0, 88);
+					var ulftxt = data[i][j][k].ulf.chars.join('').replace(/[-]/g, '  ').substring(0, 99);
+					var dlftxt = data[i][j][k].dlf.chars.join('').replace(/[-]/g, '  ').substring(0, 99);
+					var ulrtxt = data[i][j][k].ulr.chars.join('').replace(/[-]/g, '  ').substring(0, 99);
+					var dlrtxt = data[i][j][k].dlr.chars.join('').replace(/[-]/g, '  ').substring(0, 99);
 
 					// Color Text
 					ulftxt = (data[i][j][k].ulf.ioc >= C.ioc.low.value && data[i][j][k].ulf.ioc < C.ioc.medium.value) ? K.green(ulftxt) : ulftxt;
