@@ -48,7 +48,7 @@ var C =
 
 		"minchar": 2,
 		"maxchar": 6,
-		"include": ['banana', 'ninja', 'WIS/ZDOM', 'C/KOAN', 'MAS/ZTER', 'PRIMES/Z'],
+		"include": ['banana', 'ninja', 'WISDOM', 'KOAN', 'MASTER', 'PRIMES', 'INSTAR'],
 		"exclude": ['i', 'he', 'cat', 'dog']
 	}
 };

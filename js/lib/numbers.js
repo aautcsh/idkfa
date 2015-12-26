@@ -14,7 +14,7 @@ var N =
 	"pi": function(length, decimal)
 	{
 		var p = [];
-		if (decimal) p = pi(length + 1, false).split('').map(Number); // Returns: 1, 4, 1, 5, 9, 2, 6, 5, 3, 5..
+		if (decimal === 1) p = pi(length + 1, false).split('').map(Number); // Returns: 1, 4, 1, 5, 9, 2, 6, 5, 3, 5..
 		else {p = pi(length, true); p = (p.slice(0, 1) + p.slice(2)).split('').map(Number);} // Returns: 3, 1, 4, 1, 5, 9, 2, 6, 5, 3..
 		return p;
 	},

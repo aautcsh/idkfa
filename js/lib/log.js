@@ -107,7 +107,7 @@ var L =
 						tmp1 += Object.keys(data[i][j][k].ulf.frequency)[ii] + ' ';
 					}
 
-					str += K.blue(tmp1.substring(0, 104));
+					str += K.blue(tmp1.substring(0, 110));
 
 					str += '\n' + 'DLF:\t';
 
@@ -117,7 +117,7 @@ var L =
 						tmp2 += Object.keys(data[i][j][k].dlf.frequency)[jj] + ' ';
 					}
 
-					str += K.blue(tmp2.substring(0, 104));
+					str += K.blue(tmp2.substring(0, 110));
 
 					str += '\n' + 'ULR:\t';
 
@@ -127,7 +127,7 @@ var L =
 						tmp3 += Object.keys(data[i][j][k].ulr.frequency)[kk] + ' ';
 					}
 
-					str += K.blue(tmp3.substring(0, 104));
+					str += K.blue(tmp3.substring(0, 110));
 
 					str += '\n' + 'DLR:\t';
 
@@ -137,7 +137,7 @@ var L =
 						tmp4 += Object.keys(data[i][j][k].dlr.frequency)[ll] + ' ';
 					}
 
-					str += K.blue(tmp4.substring(0, 104));
+					str += K.blue(tmp4.substring(0, 110));
 
 					str += '\n\n';
 

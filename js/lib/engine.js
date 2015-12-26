@@ -17,6 +17,8 @@ var K = require('./keys');
 var N = require('./numbers');
 var _ = require('underscore');
 
+var nt	= require('number-theory');
+
 var E =
 {
 	/*
@@ -76,16 +78,27 @@ var E =
 				var key00 = N.integer(keylen);
 				var key01 = N.prime(keylen);
 				var key02 = N.stream(0, keylen);
-				var key03 = N.map(key01, key02, 's', -1);
+				var key03 = N.pi(keylen);
 
-				tkeys[i][j].push(K.pad(key03.slice(0), keylen));
+
+				var key05 = K.pad([13,17,31,29,23,11,2,3,5,7,19,37,53,47,43,41], keylen);
+
+				var key06 = [];
+				for (var xx = 0; xx < key05.length; xx ++)
+				{
+					key06.push(nt.eulerPhi(key05[xx]));
+				}
+
+				//tkeys[i][j].push(key06);
+
+				//var key99 = N.map(key01, key00, 'd', 0);
+
+				//tkeys[i][j].push(K.pad(key05.slice(0), keylen));
 
 				// Rotate key full circle.
 				for (var z = 0; z < keylen; z ++)
 				{
-					// Damn you JS!
-					//var clone = key00.slice(0);
-					//tkeys[i][j].push(K.rotate(clone, z));
+					//tkeys[i][j].push(K.rotate(key06.slice(0), z));
 				}
 
 				//console.log(tkeys[i][j]);
