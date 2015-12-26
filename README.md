@@ -1,3 +1,5 @@
+###### Note: Might not always be up to date ######
+
 ### Liber Primus Translator ###
 
 Takes Futhark and keys to produce clear text.
