@@ -70,13 +70,7 @@ var D =
 		raw = _.without(raw.split(/\n/), '');
 
 		// Normalize dict to match expected output (WIS/ZDOM)
-		if (normalize === 1)
-		{
-			for (var i = 0, ii = raw.length; i < ii; i ++)
-			{
-				raw[i] = this.normalize(raw[i]);
-			}
-		}
+		if (normalize === 1) for (var i = 0, ii = raw.length; i < ii; i ++) raw[i] = this.normalize(raw[i]);
 
 		// Store word in table.
 		for (var j = 0, jj = raw.length; j < jj; j ++) {this.dict[raw[j].trim().toUpperCase()] = true;}

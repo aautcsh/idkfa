@@ -103,15 +103,9 @@ var N =
 
 	"frequency": function (chars)
 	{
-		var frequency = {};
-
-		for (var i = 0, ii = chars.length; i < ii; i ++)
-		{
-			var char = chars[i].toUpperCase();
-			frequency[char] = frequency[char] ? frequency[char] + 1 : 1;
-		}
-
-		return frequency;
+		var f = {};
+		for (var i = 0, ii = chars.length; i < ii; i ++) {var c = chars[i].toUpperCase(); f[c] = f[c] ? f[c] + 1 : 1;}
+		return f;
 	},
 
 	"ioc": function (data)

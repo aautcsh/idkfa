@@ -42,7 +42,7 @@ var E =
 			tkeys[i] = [];
 			current = chunks[Object.keys(chunks)[i]];
 
-			// Loop through chunks
+			// Loop through chunks. Chunks are strings.
 			for (var j = 0, jj = current.chunks.length; j < jj; j ++)
 			{
 				// Will contain everything that gets echo'd later on.
@@ -52,6 +52,10 @@ var E =
 				tkeys[i][j] = [];
 
 				// <!-- -->
+				// <!-- -->
+				// <!-- -->
+
+				//console.log(typeof(current.chunks[j]));
 
 				// Add Futhark string to output.
 				data[i][j].futhark = current.chunks[j].toString();
@@ -74,35 +78,23 @@ var E =
 				// Pad keys from K.keys to chunks length and add them to tkeys.
 				if (K.keys.length > 0) for (var y = 0, yy = K.keys.length; y < yy; y ++ ) tkeys[i][j].push(K.pad(K.keys[y].slice(0), keylen));
 
-
 				var key00 = N.integer(keylen);
 				var key01 = N.prime(keylen);
 				var key02 = N.stream(0, keylen);
 				var key03 = N.pi(keylen);
 
-
-				var key05 = K.pad([13,17,31,29,23,11,2,3,5,7,19,37,53,47,43,41], keylen);
-
 				var key06 = [];
-				for (var xx = 0; xx < key05.length; xx ++)
-				{
-					key06.push(nt.eulerPhi(key05[xx]));
-				}
+				for (var xx = 0; xx < key01.length; xx ++) key06.push(nt.eulerPhi(key01[xx]));
 
-				//tkeys[i][j].push(key06);
-
-				//var key99 = N.map(key01, key00, 'd', 0);
-
-				//tkeys[i][j].push(K.pad(key05.slice(0), keylen));
+				tkeys[i][j].push(key06);
 
 				// Rotate key full circle.
-				for (var z = 0; z < keylen; z ++)
-				{
-					//tkeys[i][j].push(K.rotate(key06.slice(0), z));
-				}
+				//for (var z = 0; z < keylen; z ++) tkeys[i][j].push(K.rotate(key06.slice(0), z));
 
 				//console.log(tkeys[i][j]);
 
+				// <!-- -->
+				// <!-- -->
 				// <!-- -->
 
 				// Loop through keys
@@ -232,6 +224,8 @@ var E =
 						}
 						data[i][j][k].dlr.frequency = dlrf;
 					}
+
+					//console.log(data[i][j][k]);
 
 					// Calculate IoC of individual mutation.
 					data[i][j][k].ulf.ioc = N.ioc(data[i][j][k].ulf.chars);

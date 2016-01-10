@@ -51,7 +51,6 @@ var D =
 		{
 			data[selector[i]] = {};
 			data[selector[i]].chunks = [];
-			data[selector[i]].maxchar = 0;
 
 			// Grab Liber by selector
 			if (getter[selector[i]]) liber[i] = getter[selector[i]]();
@@ -76,12 +75,10 @@ var D =
 
 			else continue;
 
-			// Clean chunks of leading/trailing dashes and find length of longest chunk.
+			// Clean chunks of leading/trailing dashes.
 			for (var k = 0; k < data[selector[i]].chunks.length; k ++)
 			{
 				data[selector[i]].chunks[k] = data[selector[i]].chunks[k].replace(/\s/g, '').replace(/^-*|-*$/g, '');
-				var strlen = data[selector[i]].chunks[k].replace(/-/g, '').length;
-				if(strlen > data[selector[i]].maxchar) data[selector[i]].maxchar = strlen;
 			}
 		}
 
