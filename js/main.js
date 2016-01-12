@@ -15,7 +15,7 @@ var	C = require('./config'),
 
 
 // Load chunks from Liber.
-var data = S.get({s:[0, 1, 2, 3, 4, 5, 6, 15, 16]});
+var data = S.get({s:[]});
 
 // Add a key with no shift.
 K.add([0]);
