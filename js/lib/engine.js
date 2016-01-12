@@ -48,14 +48,12 @@ var E =
 				// Will contain everything that gets echo'd later on.
 				data[i][j] = [];
 
-				// Will contail our (padded) keys.
+				// Will contain our (padded) keys.
 				tkeys[i][j] = [];
 
 				// <!-- -->
 				// <!-- -->
 				// <!-- -->
-
-				//console.log(typeof(current.chunks[j]));
 
 				// Add Futhark string to output.
 				data[i][j].futhark = current.chunks[j].toString();
