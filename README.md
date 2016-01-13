@@ -57,7 +57,7 @@ var key08 = N.stream(0, current.maxchar);		// [0, 0, 0, 0, 0, ..]
 var key09 = N.map(key01, key08, 's', - 1);		// [1, 2, 4, 6, 10, ..]
 ```
 
-To do multiple iterations of chunk with continous key, pass iterations to E.process(data, iterations);
+To do multiple iterations of chunk with continuous key, pass iterations to E.process(data, iterations);
 
 ```node
 

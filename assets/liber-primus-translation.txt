@@ -1,6 +1,9 @@
-Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
+#
+#	Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
+#
 
-############################################################
+
+#
 #
 #	00.jpg
 #
@@ -11,10 +14,10 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	Liber Primus
 #
-############################################################
+#
 
 
-############################################################
+#
 #
 #	01.jpg
 #
@@ -64,10 +67,8 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	FOR ALL IS SACRED
 #
-############################################################
 
 
-############################################################
 #
 #	02.jpg
 #
@@ -78,10 +79,8 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	Chapter 1 - Intus
 #
-############################################################
 
 
-############################################################
 #
 #	03.jpg, 04.jpg
 #
@@ -89,7 +88,7 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	Key: 6, 19, 28, 19, 20, 19, 13, 3 (DIVINITY). Shift down reversed Gematria.
 #
-#	Note: Every clear text F is an ᚠ (F), and makes the sequence skip.
+#	Note: Every clear text F is an ᚠ (F), and needs to be skipped.
 #
 #
 #	ᚢᛠᛝᛋᛇᚠᚳ
@@ -128,9 +127,9 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	SEGMENT 2 - BREAK 2
 #
-#	Key: Continuation of segment key.
+#	Key: Continuation of key.
 #
-#	Note: Every clear text F is an ᚠ (F), and makes the sequence skip.
+#	Note: Every clear text F is an ᚠ (F), and needs to be skipped.
 #
 #
 #	ᛒᛗᚱᚦᚠᛈ
@@ -158,10 +157,8 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	AN INSTRUCTION COMMAND YOUR OWN SELF
 #
-############################################################
 
 
-############################################################
 #
 #	05.jpg
 #
@@ -199,26 +196,26 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	272			138			ᛋᚻᚪᛞᚩᚹᛋ		131			151
 #
-#	ᚫᚦᛖᚱᛠᛚ		ᛒᚢᚠᚠᛖᚱᛋ	ᚢᚩᛁᛞ			ᚳᚪᚱᚾᚪᛚ		18
+#	ᚫᚦᛖᚱᛠᛚ		ᛒᚢᚠᚠᛖᚱᛋ		ᚢᚩᛁᛞ		ᚳᚪᚱᚾᚪᛚ		18
 #
-#	226			ᚩᛒᛋᚳᚢᚱᚪ	ᚠᚩᚱᛗ			245			ᛗᚩᛒᛁᚢᛋ
+#	226			ᚩᛒᛋᚳᚢᚱᚪ		ᚠᚩᚱᛗ		245			ᛗᚩᛒᛁᚢᛋ
 #
-#	18			ᚪᚾᚪᛚᚩᚷ		ᚢᚩᛁᛞ			ᛗᚩᚢᚱᚾᚠᚢᛚ	ᚫᚦᛖᚱᛠᛚ
+#	18			ᚪᚾᚪᛚᚩᚷ		ᚢᚩᛁᛞ		ᛗᚩᚢᚱᚾᚠᚢᛚ	ᚫᚦᛖᚱᛠᛚ
 #
-#	151			131			ᚳᚪᛒᚪᛚ			138			272
+#	151			131			ᚳᚪᛒᚪᛚ		138			272
 #
 #
 #	KNOW THIS
 #
-#	272			138			SHADOWS			131			151
+#	272			138			SHADOWS		131			151
 #
-#	AETHEREAL	BUFFERS		VOID			CARNAL		18
+#	AETHEREAL	BUFFERS		VOID		CARNAL		18
 #
-#	226			OBSCURA		FORM			245			MOBIUS
+#	226			OBSCURA		FORM		245			MOBIUS
 #
-#	18			ANALOG		VOID			MOURNFUL	AETHEREAL
+#	18			ANALOG		VOID		MOURNFUL	AETHEREAL
 #
-#	151			131			CABAL			138			272
+#	151			131			CABAL		138			272
 #
 #
 #	KNOW THIS
@@ -233,10 +230,8 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	151			131			341			138			272
 #
-############################################################
 
 
-############################################################
 #
 #	06.jpg, 07.jpg, 08.jpg, 09.jpg
 #
@@ -339,10 +334,8 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	DO FOUR UNREASONABLE THINGS EACH DAY
 #
-############################################################
 
 
-############################################################
 #
 #	10.jpg, 11.jpg, 12.jpg, 13.jpg
 #
@@ -478,10 +471,8 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	PROGRAM REALITY
 #
-############################################################
 
 
-############################################################
 #
 #	14.jpg, 15.jpg
 #
@@ -489,7 +480,7 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	Key: 29, 19, 25, 29, 28, 10, 29, 11, 25, 11, 20, 29, 11 (FIRFUMFERENFE). Shift down Gematria.
 #
-#	Note: Every clear text F is an ᚠ (F), and makes the sequence skip.
+#	Note: Every clear text F is an ᚠ (F), and needs to be skipped.
 #
 #
 #	ᚪ•ᛋᚹᚪᛁ
@@ -556,12 +547,21 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	IMPOSE NOTHING ON OTHERS
 #
+#
 #	KNOW THIS
 #
-############################################################
+#	434		1311		312		278		966
+#
+#	204		812			934		280		1071
+#
+#	626		620			809		620		626
+#
+#	1071	280			934		812		204
+#
+#	966		278			312		1311	434
+#
 
 
-################################################################
 #
 #	17.jpg, 18.jpg, 19.jpg
 #
@@ -588,10 +588,8 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᚻᛏ•ᛒᛇᛚᛞᚻᛒᛗ•ᛠᚱᛒ•ᚾᚻᛒᛖᚷᛇ•ᛞᛚᚹᛇᛡᛈᚩ•ᚻᛖᛠ•ᚹᛁᚱᛁᚻ•ᚢᚦᚻᚣ•ᚾᛉᛒᚷᛄᛈᚢ•ᛝᛠᚠᚾᛁᛖᛞᛡᛝᚱ•ᛞᛒᛄᛡᛟᛗᛁ•ᚠᛏ•ᛄᛞᛁᚦᚱᛚᛋ•ᛖᛇᚩᚷᛒᛏᛞ•ᚦᚪᚾᚳᚣ•ᛡᛋᚦᛞ•ᛝᚠᛚᛖᚷᚻᚳ•ᛖᚩᛁᛏᚾᛉ•ᛈᛏᚠᚻᚱᛞᛖᚠᛏ•ᚫᚹᚻ•ᛒᚳ•ᚠ•ᛈᚪᛚᚢᛠᚾᛚᛄ•ᛄᚳᛚᚹᛠᛞᚢᛞᛇ•ᛠᛉᛞᚹᚻᛠ•ᚦᛡᚫᚳᛚᛏᚹᛖᛁᚳ•ᛈᛟᛞᚳ•ᚾᚻᚪ•ᚱᛁᚷᚦᛠᛖᛏᚷ•ᚦᚻᚩᛡᚹᚫᛄᛖ•ᛝᛠᛞ•ᚩᚫ•ᚪᛚ•ᛒᛄᚳᚢᛉᛏᚪᛒᛄᛈ•ᚠᛠ•ᚻᛞᚾᛡᚢᛈᛋᚢᚹ
 #
-################################################################
 
 
-################################################################
 #
 #	20.jpg
 #
@@ -604,10 +602,6 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᛋᛈᚱᚷ•ᚣᚾᚪᚷᛇᛝᚾ•ᚹᚠᚣᚾᛒᛠᛡ•ᛈᚾᚣᚪᛋᛗᛒ•ᛡᛠᛡᛁ•ᚩᛒᚱᚾᛚᛠ•ᚱᛚᛚᛖᛒᚹᚾᚻᛗᚠᛟᛒ•ᛝ•ᚱᚪᛡᚷᛟᛇᛏᛗᛉ•ᛞᛇ•ᛗᚣᚻᛠ•ᛁᛚᛋ•ᚾᚹᚳᚠᛈᛗᛈᛚ•ᛠᛋᚦᚠᛟᛡ•ᚦᛖᚣ•ᚳᛄᛚᚳᛡᛗ•ᛒᛞᚳᛇ•ᛄᛁᛏᛟ•ᛞᛠᛖᛡᚾᛏ
 #
-################################################################
-
-
-################################################################
 #
 #	20.jpg, 21.jpg, 22.jpg, 23.jpg
 #
@@ -634,10 +628,6 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᚫᛈᚩᛄ•ᛒᚻᚱᛁᚷᚻᛄ•ᚣᚹᛗᛇᚾᚫ•ᛞᛝᛇ•ᛟᛄᛝᚳᛖᛠ•ᛉᚪᚱᚣ•ᚪᚢᛏ•ᚳᛈᚳ•ᚩᛇᛟ•ᚫᛈ•ᛏᛉᚳᛏᚻᛞᛇ•ᛉᛒᛠ•ᚫᚾᛄ•ᛠᚪᛒ•ᛖᛠᚹ•ᛡᛚ•ᚹᛁᛡᛋᛈᛚᚦᚪᛋᛄ•ᛡᛞᚣᚱᛞᛟ•ᚦᚱᛉᛟᚹ•ᚣᛞᛏ•ᚷᛚᛡᚻᚹᛗᚱ•ᛝᚠᚳ•ᚱᚫᛁᛒᚷᛈᚣ•ᛞᚪᚱᚪᛉᛟ•ᚢᚩᛁᛠ
 #
-################################################################
-
-
-################################################################
 #
 #	23.jpg, 24.jpg
 #
@@ -658,10 +648,8 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᛞᚩ•ᛟᛏᚦᚫ•ᚳᚹᛄ•ᛉᛠ•ᚷᛠᛗ
 #
-################################################################
 
 
-################################################################
 #
 #	25.jpg, 26.jpg, 27.jpg, 28.jpg, 29.jpg, 30.jpg, 31.jpg
 #
@@ -724,27 +712,30 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᛉᛡᛈᛟ•ᚾᛡᚠᛡᚢᛋ•ᛉᚪᛖᚻᚱᚣᛠᛇ•ᛒᛟ•ᚪᛝᛡ•ᚳᚱᚳᛈᚩᛏ•ᚻᚣᚫᛁᛋᚩᚦᛚ•ᛟᛚ•ᛋᚪᚢᚪᛈᚻ
 #
-################################################################
 
 
-################################################################
 #
 #	32.jpg
 #
-#	SEGMENT 10 - BREAK 1
+#	SEGMENT 10 - BREAK 1 ?
 #
 #	Key:
 #
 #
 #	ᚠᚢᛚᛗ•ᚪᛠᚣᛟᚪ
 #
-################################################################
-
-################################################################
+#	3258	3222	3152	3038
+#
+#	3278	3299	3298	2838
+#
+#	3288	3294	3296	2472
+#
+#	4516	1206	708		1820
+#
 #
 #	32.jpg, 33.jpg, 34.jpg, 35.jpg, 36.jpg, 37.jpg, 38.jpg, 39.jpg
 #
-#	SEGMENT 10 - BREAK 2
+#	SEGMENT 10 - BREAK 2 ?
 #
 #	Key:
 #
@@ -791,10 +782,8 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᛡᚦᚠᛋᚾ•ᛒᚦᚠ•ᛇᛝᛠ•ᚠᚾᛉ
 #
-################################################################
 
 
-################################################################
 #
 #	40.jpg, 41.jpg, 42.jpg, 43.jpg
 #
@@ -821,10 +810,8 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᚪᛖᛏ•ᛖᛋᚪᛟ•ᚳᚻᛁᛋᚠᛁᚾ•ᛈᛟᛝ•ᛇᚦᚣᛏᚫᛉ•ᛖᛟᛏ•ᛞᛡᛚᛖᛈᛏᚪ•ᛏᚠᚱᚾ•ᚪᛠᚱ•ᛠᚳ•ᚾᚻᚹᛒᛇᛋ•ᛁᚻᚣᛋᚹᚩᛉᚹ•ᚩᛝᚢ•ᚻᛝᛟ•ᛏᛚᚠ•ᛄᚷᛏᛝᛄᛝ
 #
-################################################################
 
 
-################################################################
 #
 #	44.jpg, 45.jpg, 46.jpg, 47.jpg, 48.jpg, 49.jpg
 #
@@ -879,14 +866,12 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᚻᚩᛗᛖᛉᚹᛞᛋᛚᚠᛞ•ᛝᛒᛇᛡᛚᚪ•ᚹᛞᚾᚫᛉᛏᚣᛗᚷ•ᚦᚹᛉᛡᚦ•ᚹᛒᛋᚱᛉᛡᛉᚪ•ᚢᛒᚻᛠ•ᚹᛝᚢᚻᛇᛝᛡᛠᛄ•ᛋᛈᚦᛏ•ᛟᛝᚩᛗᛒᚢᛞᛋ•ᛒᛄ•ᛠᚱᛟ•ᛖᚾ•ᚾᚹᚷᚢᛚᚪᚩᚣ•ᚢᛏᚠᛄᛏ•ᚪᚷᛒᛇ
 #
-################################################################
 
 
-################################################################
 #
 #	50.jpg
 #
-#	SEGMENT 13 - BREAK 1
+#	SEGMENT 13 - BREAK 1 ?
 #
 #	Key:
 #
@@ -895,14 +880,11 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᛇᛟ•ᚠᛏᛖᛟᛠᚪᛡᛋᚷ•ᚣᛠᚾᚦᚫᚱ•ᚩᛡᛗ•ᚹᛉᛗ•ᚣᛞᛒᛏᚱ•ᚢᛄᚻ•ᚫᛟ•ᛡᛝᚹᚻᛋᚠᛡ•ᛚᚦᛏ•ᛁᚹᛏ•ᚩᚢᚾᚹᛗᛚ•ᛋᚦᛠᚹᛄ•ᚪᛄᚫᚷᚣᛗᚹᛞ•ᛈᛡ•ᛖᛄᚹ•ᛖᚢ•ᚻᚹ•ᛝᛁ•ᛋᚫᚷ•ᛄᛚ
 #
-################################################################
-
-
-################################################################
+#
 #
 #	50.jpg, 51.jpg, 52.jpg, 53.jpg, 54.jpg, 55.jpg, 56.jpg
 #
-#	SEGMENT 13 - BREAK 2
+#	SEGMENT 13 - BREAK 2 ?
 #
 #	Key:
 #
@@ -943,14 +925,11 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᚾᚦᛇᛒᚳ•ᚷᛖᛇᛟᛚᛈ•ᚹᚾ•ᚻᚷᚱᛇᛏ•ᛈᚷᛒ•ᚹᛗᛋᚹᛟᚻ
 #
-################################################################
-
-
-################################################################
+#
 #
 #	56.jpg
 #
-#	SEGMENT 13 - BREAK 3
+#	SEGMENT 13 - BREAK 3 ?
 #
 #	Key:
 #
@@ -959,10 +938,8 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᛈᛞᛋᛡ•ᚪᚹᛏᚳᚹᛟ•ᛗᚹᛁᛒᛞ•ᚷᛇᚢᛚ•ᛉᛋᚫ•ᛟᚻᛚᚦᛒ•ᚣᚪᛚᛞᚦᚠ•ᚻ•ᛞᛝᚩᚢᛋᚪᚫ•ᛖᚦᛁ•ᛏᛄᛏ•ᛝᚦᚾᚳᛉᛏᛝ•ᚳᛈᛁ•ᚾᛏ•ᛒᚾᛡᚱᛒ•ᚢᛈᛋᚦᛁᚳᛈᛋᛁᚹ•ᚹᛚᚣᚾᚢ•ᛒᛁᚪᛠ•ᚹᛟᚳ•ᛠᚢᚪ•ᛚᚦᚹ•ᚠᚾᛏᚳᛡᛁ•ᛚᚩ•ᚾᛗᛄᛠ•ᚦᛟᛄ•ᚪᚦᚹ•ᛡᚾᛖᛠᛈ•ᛒᛋᛄ
 #
-################################################################
 
 
-################################################################
 #
 #	57.jpg - 70.jpg
 #
@@ -1057,10 +1034,7 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᛏᛈᚹᛇᛋ•ᚹᛒᛇᚦ•ᚾᚻᚷᛄ•ᚱᛡᛞᛡᚦᚪᛁᛇᚫᛉᛚ•ᛇᛠ•ᛡᚪᛄ•ᚻᚱ•ᚦᛈᛞᛄᛝᚩ•ᚷᚠᛇᛗᚳ•ᚻᛞᚩᛏᚳ•ᚢᚱ•ᛈᚾ
 #
-################################################################
-
-
-################################################################
+#
 #
 #	71.jpg - 72.jpg
 #
@@ -1073,10 +1047,8 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	ᛡᛞᛈᛝᚢᚹᚪᛗ•ᛏᚪᛝ•ᛝᚦᛡᚹᛋᚻ•ᛁᚳ•ᚫᛈᚫᚷᚩ•ᛗᛁᚪ•ᛖᚩ•ᛏᚹᚩ•ᚠᚣᚢᛏᛄ•ᚦᛄᛠᛖᚳᚾᛠ•ᚳᛠᛖ•ᚱᚩᚢᛉ•ᛞᚹᚻᛒᛝᚠᚪᚳᛄᚢ•ᚩᛄᛡᛠᛁᛚᚷᚻ•ᛒᚢᛄ•ᛉᚪᚳᚹᛡ•ᛗᚩᛈᚣᛞᛡᛚᛈ•ᛇᛁᚦᚱ•ᚣᚷᛗ•ᛉᛟᚷᛋ•ᛗᛈᛄᛟᛞ•ᛟᛏᛡᛟ•ᛏᛝᛁ•ᛗᛝᚣᚪᚫ•ᛝ•ᚱᚣᛄ•ᚾᛚᚢᛉᛒ•ᚻᛈᛄᚩᛠ•ᚷᚫᚹ•ᛉᛋᛞᚳ•ᚢᛏ•ᛟᚻᛇᚾᛈᛏ•ᛠᚣᛒᚢᚷ•ᚷᚪᛇ•ᚾᚷᚩᛖᛚᛗᛒᚦ•ᚣᛡᛟᛇᚣ•ᛗᚳᛟᚦ•ᛖᛚᚱᛇᛈᚱᛞᚣ•ᛉᛞ•ᛝᚣᛈ•ᛋᛖᛉᚹ•ᚳᚷᚠᛞᚱᛖ•ᛞᛖᚹᚩᛇᛟ•ᚻᚩᛟ•ᛒᛋ•ᚻᛠᚪᚳᛁᛗᛉᛄᛗᛖ•ᛗᛚ•ᚷᚩᛏᚦᛉᛖᛠᚱᚷᚣᛝ•ᚫᛗᛁᚹ•ᛋᛒ•ᛉᛗ•ᛋᛇᚷᛞᚦᚫ•ᚠᛡᚪᛒᚳᚢ•ᚹᚱ•ᛒᛠᚠᛉᛁᛗᚢᚳᛈᚻᛝᛚᛇ•ᛗᛋᛞᛡᛈᚠ•ᛒᚻᛇᚳ•ᛇᛖ•ᛠᛖᛁᚷᛉᚷᛋ•ᛖᛋᛇᚦᚦᛖᛋ•ᚦᛟ•ᚳᛠᛁᛗᚳᛉ•ᛞᛄᚢ•ᛒᛖᛁ
 #
-################################################################
 
 
-################################################################
 #
 #	73.jpg
 #
@@ -1084,7 +1056,7 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	Key: phi(prime). Shift up Gematria.
 #
-#	Note: Every clear text F is an ᚠ (F), and makes the sequence skip.
+#	Note: Every clear text F is an ᚠ (F), and needs to be skipped.
 #
 #
 #	ᚫᛄ•ᛟᛋᚱ
@@ -1116,12 +1088,10 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	IT IS THE DUTY OF EVERY PILGRIM TO SEEK OUT THIS PAGE
 #
-################################################################
 
 
-################################################################
 #
-#	71.jpg - 72.jpg
+#	74.jpg
 #
 #	SEGMENT 16 - BREAK 1
 #
@@ -1145,4 +1115,3 @@ Note: Page/JPG count starts at first page of Liber Primus (+ 17 pages)
 #
 #	FIND THE DIVINITY WITHIN AND EMERGE
 #
-################################################################
