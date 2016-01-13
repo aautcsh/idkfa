@@ -58,8 +58,16 @@ var E =
 				// Add Futhark string to output.
 				data[i][j].futhark = current.chunks[j].toString();
 
-				var wordcount = data[i][j].futhark.replace(/[\s]/g, '').split('-').length;
+				var words = data[i][j].futhark.replace(/[\s]/g, '').split('-');
+
+				// Calculate word/char count.
+				var wordcount = words.length;
 				var charcount = data[i][j].futhark.replace(/[-\s]/g, '').length;
+
+				for (var z = 0, primevalues = []; z < wordcount; z ++)
+				{
+					primevalues.push(G.toPrimevalue(words[z]));
+				}
 
 				// Add word/char count and char frequency to output.
 				data[i][j].wordcount = wordcount;

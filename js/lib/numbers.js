@@ -122,8 +122,7 @@ var N =
 		// Calculate denominator.
 		_.each(frequency, function (a, b, c) {c[b] = c[b] * (c[b] - 1);});
 		var baz = (_.values(frequency));
-		var sum = 0;
-		for (var k = 0; k < baz.length; k ++) sum += baz[k];
+		for (var k = 0, sum = 0; k < baz.length; k ++) sum += baz[k];
 
 		// Calculate and return Ioc.
 		return sum / (charlen * (charlen - 1) / 29);

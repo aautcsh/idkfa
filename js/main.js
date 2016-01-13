@@ -15,15 +15,15 @@ var	C = require('./config'),
 
 
 // Load chunks from Liber.
-var data = S.get({s:[]});
+var data = S.get({s:[0]});
 
 // Add a key with no shift.
 K.add([0]);
 
 // Add known keys.
-K.add('divinity', 1);
-K.add([3]);
-K.add('firfumferenfe', 1);
+//K.add('divinity', 1);
+//K.add([3]);
+//K.add('firfumferenfe', 1);
 
 // Process data with n iterations.
 data = E.process(data, 1);
