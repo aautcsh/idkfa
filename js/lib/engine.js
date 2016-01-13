@@ -66,7 +66,7 @@ var E =
 
 				for (var z = 0, primevalues = []; z < wordcount; z ++)
 				{
-					primevalues.push(G.toPrimevalue(words[z]));
+					//primevalues.push(G.toPrimevalue(words[z]));
 				}
 
 				// Add word/char count and char frequency to output.

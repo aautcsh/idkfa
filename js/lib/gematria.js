@@ -45,6 +45,7 @@ var G =
 
 	"toPrimevalue": function (string)
 	{
+		/*
 		var strlen = string.length;
 
 		for (var i = 0; i < strlen; i ++)
@@ -54,6 +55,7 @@ var G =
 
 			}
 		}
+		*/
 
 		//console.log(string);
 	}
