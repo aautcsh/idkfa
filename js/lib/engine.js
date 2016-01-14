@@ -64,11 +64,6 @@ var E =
 				var wordcount = words.length;
 				var charcount = data[i][j].futhark.replace(/[-\s]/g, '').length;
 
-				for (var z = 0, primevalues = []; z < wordcount; z ++)
-				{
-					//primevalues.push(G.toPrimevalue(words[z]));
-				}
-
 				// Add word/char count and char frequency to output.
 				data[i][j].wordcount = wordcount;
 				data[i][j].charcount = charcount;
@@ -84,14 +79,19 @@ var E =
 				// Pad keys from K.keys to chunks length and add them to tkeys.
 				if (K.keys.length > 0) for (var y = 0, yy = K.keys.length; y < yy; y ++ ) tkeys[i][j].push(K.pad(K.keys[y].slice(0), keylen));
 
+				// Test Keys
 				var key00 = N.integer(keylen);
 				var key01 = N.prime(keylen);
 				var key02 = N.stream(0, keylen);
 				var key03 = N.pi(keylen);
 
+				// Select word-prime-values as key. Cumulative!
+				//var kkk = K.select({s:[7]});
+				//var key04 = K.pad(kkk, keylen);
+				//tkeys[i][j].push(key04);
+
 				var key06 = [];
 				for (var xx = 0; xx < key01.length; xx ++) key06.push(nt.eulerPhi(key01[xx]));
-
 				tkeys[i][j].push(key06);
 
 				// Rotate key full circle.

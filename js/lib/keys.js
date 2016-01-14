@@ -5,7 +5,9 @@
 //	Keys
 //
 
-var _ = require('underscore');
+var S = require('./source'),
+	G = require('./gematria'),
+	_ = require('underscore');
 
 var K =
 {
@@ -225,6 +227,27 @@ var K =
 		}
 
 		return ckey;
+	},
+
+	"select": function (selectors)
+	{
+		var data = S.get(selectors);
+
+		var pv = [];
+
+		for (var i = 0, ii = Object.keys(data).length; i < ii; i ++)
+		{
+			var current = data[Object.keys(selectors)[i]];
+
+			for (var j = 0, jj = current.chunks.length; j < jj; j ++)
+			{
+				var baz = current.chunks[j].split('-');
+
+				for (var k = 0, kk = baz.length; k < kk; k ++) pv.push(G.value(baz[k], 0));
+			}
+		}
+
+		return pv;
 	}
 };
 
