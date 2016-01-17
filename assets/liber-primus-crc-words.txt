@@ -1,3 +1,6 @@
+#
+#	Note: Cecksum is sum of Gematria values.
+#
 
 Chunk: 0
 
