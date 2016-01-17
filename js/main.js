@@ -14,9 +14,13 @@ var	C = require('./config'),
 	S = require('./lib/source');
 
 
+// Solved by section:		0,1,2,3,4,5,6,15,16
+// Unsolved by paragraph:	16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32
+
+
 // Load chunks from Liber.
 console.log('[-] Loading chunks..');
-var data = S.get({s:[0, 1, 2, 3, 4, 5, 6, 15, 16]});
+var data = S.get({s:[0,1,2,3,4,5,6,15,16]});
 console.log('[-] Done loading chunks..');
 
 // Process data with n iterations.
@@ -26,4 +30,3 @@ console.log('[-] Done processing data..');
 
 // Echo results.
 L.toScreen(data);
-

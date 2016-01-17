@@ -21,10 +21,12 @@ var L =
 			// Loop Chunks
 			for (var j = 0; j < data[i].length; j ++)
 			{
+				/*
 				var frequencies = data[i][j].frequencies;
-
 				var sorted = [];
+
 				for (var foo in frequencies) sorted.push([foo, frequencies[foo]]);
+
 				sorted.sort(function(a, b) {return a[1] - b[1];}).reverse();
 
 				var foofreq = '';
@@ -34,18 +36,19 @@ var L =
 				}
 
 				foofreq = foofreq.substring(0, 95) + '\n' + foofreq.substring(95);
+				*/
 
 				str += K.bold.red('Chunk: ' + j) + '\n\n';
 				str += 'Words: ' + data[i][j].wordcount + ' // Chars: ' + data[i][j].charcount + ' // CRC: ' + data[i][j].crc + '\n\n';
 				//str += 'Frequencies: ' + foofreq + '\n\n';
 				//str += 'Doubles: ' + '' + '\n\n';
-				str += data[i][j].futhark.substring(0, 120) + '\n';
+				str += data[i][j].futhark.substring(0, 122) + '\n';
 				str += '---------------------------------------------------------------------------------------------------------------------------' + '\n\n';
 
 				// Display chunk data.
 				for (var k = 0; k < data[i][j].length; k ++)
 				{
-					str += K.bold('Key:\t') + data[i][j][k].key.substring(0, 115) + '\n\n';
+					str += K.bold('Key:\t') + data[i][j][k].key.substring(0, 110) + '\n\n';
 
 					// Prepare IoC
 					var ulfioc = (data[i][j][k].ulf.ioc).toString().substring(0, 10);

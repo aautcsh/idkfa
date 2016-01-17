@@ -37,7 +37,7 @@ var E =
 		var tkeys = [], data = [], current;
 
 		//Add keys from config.
-		if (C.keys.length > 0) for (var q = 0, qq = C.keys.length; q < qq; q ++ ) K.add(C.keys[q][0], C.keys[q][1]);
+		if (C.keys.length > 0) for (var t = 0, tt = C.keys.length; t < tt; t ++ ) K.add(C.keys[t][0], C.keys[t][1]);
 
 		// Loop through Selectors
 		for (var i = 0, ii = Object.keys(chunks).length; i < ii; i ++)
@@ -52,7 +52,7 @@ var E =
 				// Will contain everything that gets echo'd later on.
 				data[i][j] = [];
 
-				// Will contain our (padded) keys.
+				// Will contain (padded) keys.
 				tkeys[i][j] = [];
 
 				// Add Futhark string to output.
