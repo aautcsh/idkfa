@@ -25,12 +25,14 @@ var D =
 		var raw = F.readFileSync(C.raw, C.encoding);
 		if (typeof(raw) !== "string" || raw.length < 1)	return;
 
-		var rxWord = new RegExp('[&$\/%\s]', 'g');
-		var rxClause = new RegExp('[&$\/%\s]', 'g');
-		var rxParagraph = new RegExp('[$%\/\s]', 'g');
-		var rxSegment = new RegExp('[&\/%\s]', 'g');
-		var rxLine = new RegExp('[&$%\s]', 'g');
-		var rxPage = new RegExp('[&$\/\s]', 'g');
+
+		var rxWord = new RegExp('[&$§\/%\s]', 'g');
+		var rxClause = new RegExp('[&$§\/%\s]', 'g');
+		var rxParagraph = new RegExp('[$§\/%\s]', 'g');
+		var rxSegment = new RegExp('[&§\/%\s]', 'g');
+		var rxChapter = new RegExp('[&$\/%\s]', 'g');
+		var rxLine = new RegExp('[&$§%\s]', 'g');
+		var rxPage = new RegExp('[&$§\/\s]', 'g');
 		var rxDot = new RegExp('[.]', 'g');
 
 		var getter =
@@ -38,33 +40,30 @@ var D =
 			"w": function () {return _.without(raw.replace(rxDot, C.delimiter.word).replace(rxWord, '').split(C.delimiter.word), undefined);},
 			"c": function () {return _.without(raw.replace(rxClause, '').split(C.delimiter.clause), undefined);},
 			"p": function () {return _.without(raw.replace(rxDot, C.delimiter.word).replace(rxParagraph, '').split(C.delimiter.paragraph), undefined);},
+			"x": function () {return _.without(raw.replace(rxDot, C.delimiter.word).replace(rxChapter, '').split(C.delimiter.chapter), undefined);},
 			"s": function () {return _.without(raw.replace(rxDot, C.delimiter.word).replace(rxSegment, '').split(C.delimiter.segment), undefined);},
 			"l": function () {return _.without(raw.replace(rxDot, C.delimiter.word).replace(rxLine, '').split(C.delimiter.line), undefined);},
-			"q": function () {return _.without(raw.replace(rxDot, C.delimiter.word).replace(rxPage, '').split(C.delimiter.page), undefined);},
+			"q": function () {return _.without(raw.replace(rxDot, C.delimiter.word).replace(rxPage, '').split(C.delimiter.page), undefined);}
 		};
 
 		var data = [], liber = [];
-		var selector = Object.keys(selectors);
+		var selector = (selectors) ? Object.keys(selectors) : ['x'];
 
-		// Loop through selectors (w, c, p, s, l, q)
+		// Loop through selectors (w, c, p, s, x, l, q)
 		for (var i = 0, ii = selector.length; i < ii; i ++)
 		{
 			data[selector[i]] = {};
 			data[selector[i]].chunks = [];
 
 			// Grab Liber by selector
-			if (getter[selector[i]]) liber[i] = getter[selector[i]]();
+			if (getter[selector[i]]) liber[i] = _.without(getter[selector[i]](), '');
 			else continue;
 
-			var lenj = selectors[selector[i]].length;
-
-			// If no chunks were specified return all chunks
-			if (lenj === 0) data[selector[i]].chunks = liber[i];
-
-			else if (lenj > 0)
+			// Remove not needed chunks.
+			if (selectors[selector[i]].length > 0)
 			{
 				// Loop through specified chunks
-				for (var j = 0; j < lenj; j ++)
+				for (var j = 0, jj = selectors[selector[i]].length; j < jj; j ++)
 				{
 					var offset = selectors[selector[i]][j];
 
@@ -72,14 +71,10 @@ var D =
 					else data[selector[i]].chunks.push((liber[i].slice(offset, offset + 1).toString()));
 				}
 			}
+			else data[selector[i]].chunks = liber[i];
 
-			else continue;
-
-			// Clean chunks of leading/trailing dashes.
-			for (var k = 0; k < data[selector[i]].chunks.length; k ++)
-			{
-				data[selector[i]].chunks[k] = data[selector[i]].chunks[k].replace(/\s/g, '').replace(/^-*|-*$/g, '');
-			}
+			// Clean chunks of leading/trailing dashes and control chars.
+			for (var k = 0; k < data[selector[i]].chunks.length; k ++) data[selector[i]].chunks[k] = data[selector[i]].chunks[k].replace(/\s/g, '').replace(/^-*|-*$/g, '');
 		}
 
 		return data;

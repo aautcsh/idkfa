@@ -33,7 +33,11 @@ var E =
 	*/
 	"process": function (chunks, iteration)
 	{
+		//
 		var tkeys = [], data = [], current;
+
+		//Add keys from config.
+		if (C.keys.length > 0) for (var q = 0, qq = C.keys.length; q < qq; q ++ ) K.add(C.keys[q][0], C.keys[q][1]);
 
 		// Loop through Selectors
 		for (var i = 0, ii = Object.keys(chunks).length; i < ii; i ++)
@@ -51,18 +55,19 @@ var E =
 				// Will contain our (padded) keys.
 				tkeys[i][j] = [];
 
-				// <!-- -->
-				// <!-- -->
-				// <!-- -->
-
 				// Add Futhark string to output.
 				data[i][j].futhark = current.chunks[j].toString();
 
+				// Split Futhark to array of words.
 				var words = data[i][j].futhark.replace(/[\s]/g, '').split('-');
 
 				// Calculate word/char count.
 				var wordcount = words.length;
 				var charcount = data[i][j].futhark.replace(/[-\s]/g, '').length;
+
+				// Calculate 'checksum'.
+				for (var x = 0, crc = 0, xx = words.length; x < xx; x ++) crc += G.value(words[x]);
+				data[i][j].crc = crc;
 
 				// Add word/char count and char frequency to output.
 				data[i][j].wordcount = wordcount;
@@ -76,28 +81,38 @@ var E =
 				// Add iteration to output.
 				data[i][j].iteration = iteration;
 
-				// Pad keys from K.keys to chunks length and add them to tkeys.
+				// Pad to chunks length and add them to tkeys.
 				if (K.keys.length > 0) for (var y = 0, yy = K.keys.length; y < yy; y ++ ) tkeys[i][j].push(K.pad(K.keys[y].slice(0), keylen));
 
-				// Test Keys
-				var key00 = N.integer(keylen);
-				var key01 = N.prime(keylen);
-				var key02 = N.stream(0, keylen);
-				var key03 = N.pi(keylen);
+				// <!--				-->
+				// <!--	Test Keys	-->
+				// <!--				-->
 
-				// Select word-prime-values as key. Cumulative!
-				//var kkk = K.select({s:[7]});
-				//var key04 = K.pad(kkk, keylen);
-				//tkeys[i][j].push(key04);
 
-				var key06 = [];
-				for (var xx = 0; xx < key01.length; xx ++) key06.push(nt.eulerPhi(key01[xx]));
-				tkeys[i][j].push(key06);
+				// Build some streams of common sequences.
+				//console.log('[-] Generating integers: ' + keylen + '..');
+				//var keyInt		= N.integer(keylen);
+
+				//console.log('[-] Generating primes: ' + keylen + '..');
+				var keyPrime	= N.prime(keylen);
+
+				//console.log('[-] Generating pi: ' + keylen + '..');
+				//var keyPi		= N.pi(keylen);
+
+				// Add key section 15 (phi(prime))
+				var keySection15 = [];
+				for (var k15 = 0; k15 < keyPrime.length; k15 ++) keySection15.push(nt.eulerPhi(keyPrime[k15]));
+				tkeys[i][j].push(keySection15);
+
+
+				// Select Gematria values of words as key. Cumulative!
+				//var primeValues = K.select({s:[15]});
+				//var pv = K.pad(primeValues, keylen);
+				//tkeys[i][j].push(pv);
 
 				// Rotate key full circle.
 				//for (var z = 0; z < keylen; z ++) tkeys[i][j].push(K.rotate(key06.slice(0), z));
 
-				//console.log(tkeys[i][j]);
 
 				// <!-- -->
 				// <!-- -->

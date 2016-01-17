@@ -36,7 +36,7 @@ var L =
 				foofreq = foofreq.substring(0, 95) + '\n' + foofreq.substring(95);
 
 				str += K.bold.red('Chunk: ' + j) + '\n\n';
-				str += 'Words: ' + data[i][j].wordcount + ' // Chars: ' + data[i][j].charcount + ' // Iterations: ' +  data[i][j].iteration + '\n\n';
+				str += 'Words: ' + data[i][j].wordcount + ' // Chars: ' + data[i][j].charcount + ' // CRC: ' + data[i][j].crc + '\n\n';
 				//str += 'Frequencies: ' + foofreq + '\n\n';
 				//str += 'Doubles: ' + '' + '\n\n';
 				str += data[i][j].futhark.substring(0, 120) + '\n';

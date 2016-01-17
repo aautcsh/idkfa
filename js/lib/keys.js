@@ -17,6 +17,11 @@ var K =
 	"table": [{'F': 1}, {'U': 2}, {'V': 2}, {'TH': 3}, {'O': 4}, {'R': 5}, {'C': 6}, {'K': 6}, {'G': 7}, {'W': 8}, {'H': 9}, {'N': 10}, {'I': 11}, {'J': 12}, {'EO': 13}, {'P': 14}, {'X': 15}, {'S': 16}, {'Z': 16}, {'T': 17}, {'B': 18}, {'E': 19}, {'M': 20}, {'L': 21}, {'NG': 22}, {'ING': 22}, {'OE': 23}, {'D': 24}, {'A': 25}, {'AE': 26}, {'Y': 27}, {'IA': 28}, {'IO': 28}, {'EA': 29}],
 
 	/*
+	*
+	*/
+	"keys": [],
+
+	/*
 	*	Wrapper for addArray() and addString().
 	*
 	*	If key is an array of integers, values are interpreted as relative Gematria offsets.
@@ -30,7 +35,6 @@ var K =
 	{
 		if (!key.length || key.length < 1) return;
 		if (!direction) direction = 0;
-		if (!this.keys) this.keys = [];
 
 		if (_.isArray(key)) this.addArray(key, direction);
 		else if (_.isString(key)) this.addString(key, direction);
@@ -229,6 +233,15 @@ var K =
 		return ckey;
 	},
 
+	/*
+	*	Select.
+	*
+	*	Select parts of LP as GV representation.
+	*	Selectors are cumulative, so {w:[0, 1], c:[0, 1]} will return [w0, w1, c1, c2]
+	*
+	*	@param	{object}	selectors
+	*	@return {array}		primevalues
+	*/
 	"select": function (selectors)
 	{
 		var data = S.get(selectors);
